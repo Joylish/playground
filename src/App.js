@@ -12,11 +12,11 @@ class App extends Component{
   }
 
   render(){
-    const name = "Lain";
+    const name = "Joylish";
 
     return (
       <div className="App">
-      <Header name ={name} />
+      <Header name ={name} foo="Hi!" />
       </div>
     );
   }

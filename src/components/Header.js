@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 
 //Stateless component, dump component 바보 컴포넌트
-const Header = props =>{
+const Header = ({name, foo}) =>{
 // const Header = ({name, foo}) =>{
 // destructuring
 
@@ -14,7 +14,7 @@ const Header = props =>{
     //     props.foo
     // )
     
-    const name = props.name;
+    // const name = props.name;
     // const foo = props.foo;
     
     // const {name, foo} = props;
