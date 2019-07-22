@@ -6,75 +6,55 @@ public class DirtSample {
     public DirtSample(Item[] items) {
         this.items = items;
     }
-
-    private static void UpdateQuality(Item item)
-    {
-        if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
-        {
-            if (item.Quality > 0)
-            {
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    item.Quality = item.Quality - 1;
-                }
-            }
-        }
-        else
-        {
-            if (item.Quality < 50)
-            {
-                item.Quality = item.Quality + 1;
-
-                if (item.Name.equals("Backstage passes to a TAFKAL80ETC concert"))
-                {
-                    if (item.SellIn < 11)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
+    
+    public void updateQuality() {
+        for (int i = 0; i < items.length; i++) {
+            if (!items[i].name.equals("Aged Brie")
+                    && !items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                if (items[i].quality > 0) {
+                    if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                        items[i].quality = items[i].quality - 1;
                     }
+                }
+            } else {
+                if (items[i].quality < 50) {
+                    items[i].quality = items[i].quality + 1;
 
-                    if (item.SellIn < 6)
-                    {
-                        if (item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
+                    if (items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        if (items[i].sellIn < 11) {
+                            if (items[i].quality < 50) {
+                                items[i].quality = items[i].quality + 1;
+                            }
+                        }
+
+                        if (items[i].sellIn < 6) {
+                            if (items[i].quality < 50) {
+                                items[i].quality = items[i].quality + 1;
+                            }
                         }
                     }
                 }
             }
-        }
 
-        if (!item.Name.equals("Sulfuras, Hand of Ragnaros"))
-        {
-            item.SellIn = item.SellIn - 1;
-        }
-
-        if (item.SellIn < 0)
-        {
-            if (item.Name != "Aged Brie")
-            {
-                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (item.Quality > 0)
-                    {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            item.Quality = item.Quality - 1;
-                        }
-                    }
-                }
-                else
-                {
-                    item.Quality = item.Quality - item.Quality;
-                }
+            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                items[i].sellIn = items[i].sellIn - 1;
             }
-            else
-            {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
+
+            if (items[i].sellIn < 0) {
+                if (!items[i].name.equals("Aged Brie")) {
+                    if (!items[i].name.equals("Backstage passes to a TAFKAL80ETC concert")) {
+                        if (items[i].quality > 0) {
+                            if (!items[i].name.equals("Sulfuras, Hand of Ragnaros")) {
+                                items[i].quality = items[i].quality - 1;
+                            }
+                        }
+                    } else {
+                        items[i].quality = items[i].quality - items[i].quality;
+                    }
+                } else {
+                    if (items[i].quality < 50) {
+                        items[i].quality = items[i].quality + 1;
+                    }
                 }
             }
         }

@@ -1,20 +1,20 @@
 package ajou.realCoding.my_refactoring.dirt;
 
 public class Item {
-    public String Name;
+    public String name;
 
-    public int SellIn;
+    public int sellIn;
 
-    public int Quality;
+    public int quality;
 
     public Item(String name, int sellIn, int quality) {
-        this.Name = name;
-        this.SellIn = sellIn;
-        this.Quality = quality;
+        this.name = name;
+        this.sellIn = sellIn;
+        this.quality = quality;
     }
 
     @Override
     public String toString() {
-        return this.Name + ", " + this.SellIn + ", " + this.Quality;
+        return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 }
