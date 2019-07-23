@@ -8,7 +8,7 @@ class CounterButton extends React.Component {
 
     this.state = {
       counter1: props.counter1,
-      counter2: props.counter2,
+      counter2: props.counter1 + 65,
     };
   }
 
@@ -34,10 +34,10 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <CounterButton counter1={0} counter2 = {65}/>
-        <CounterButton counter1={1} counter2 = {66}/>
-        <CounterButton counter1={2} counter2 = {67}/>
-        <CounterButton counter1={3} counter2 = {68}/>
+        <CounterButton counter1={0} />
+        <CounterButton counter1={1} />
+        <CounterButton counter1={2} />
+        <CounterButton counter1={3} />
       </View>
     );
   }
