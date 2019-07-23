@@ -9,7 +9,7 @@ class CounterButton extends React.Component {
     this.state = {
       counter1: props.counter1,
       counter2: props.counter1 + 65,
-      colorPosition: props.counter1,
+      colorPosition: Math.floor(Math.random()*4),
     };
   }
 
