@@ -13,10 +13,10 @@ class CounterButton extends React.Component {
   }
 
   clickHandler = () => {
-    this.setState({
-      counter1: this.state.counter1 + 1,
-      counter2: (this.state.counter2 + 1 > 90)?(this.state.counter2-25):(this.state.counter2+1),
-    });
+    this.setState((state)=>({
+      counter1: state.counter1 + 1,
+      counter2: (state.counter2 + 1 > 90)?(state.counter2-25):(state.counter2+1),
+    }));
   };
 
   render() {
