@@ -18,6 +18,7 @@ class CounterButton extends React.Component {
     this.setState((state)=>({
       counter1: state.counter1 + 1,
       counter2: (state.counter2 + 1 > 90)?(state.counter2-25):(state.counter2+1),
+      colorPosition: Math.floor(Math.random()*4),
     }));
   };
 
