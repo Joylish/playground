@@ -9,6 +9,7 @@ class CounterButton extends React.Component {
     this.state = {
       counter1: props.counter1,
       counter2: props.counter1 + 65,
+      color: props.color,
     };
   }
 
@@ -23,7 +24,7 @@ class CounterButton extends React.Component {
     return (
       <View>
         <Text>{this.state.counter1}</Text>
-        <Button title={'click me!'} onPress={this.clickHandler}/>
+        <Button color={ this.state.color} title={'click me!'} onPress={this.clickHandler}/>
         <Text>{String.fromCharCode(this.state.counter2)}</Text>
       </View>
     );
@@ -34,10 +35,10 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <CounterButton counter1={0} />
-        <CounterButton counter1={1} />
-        <CounterButton counter1={2} />
-        <CounterButton counter1={3} />
+        <CounterButton counter1={0} color = {"orange"} />
+        <CounterButton counter1={1} color = {"#bfff00"}/> 
+        <CounterButton counter1={2} color = {"green"}/>
+        <CounterButton counter1={3} color = {"#f7e600"}/> 
       </View>
     );
   }
