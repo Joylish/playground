@@ -73,13 +73,13 @@ HTML을 처음 배울때는 CSS를 모르는 상태이기에  **논리적 태그
 
 1. 물리적 태그
 
-   ![1564156159567](C:\Users\IMPlay\Desktop\뜸부기\html\물리적태그.png)
+   ![1564156159567](physicalTag.png)
 
    
 
 2. 논리적 태그
 
-   ![1564156744328](C:\Users\IMPlay\Desktop\뜸부기\html\logicalTag.png)
+   ![1564156744328](logicalTag.png)
 
 ### 자주 쓰는 태그(tag)
 
@@ -93,7 +93,7 @@ HTML을 처음 배울때는 CSS를 모르는 상태이기에  **논리적 태그
   <h3> 반갑습니다! </h3>
   ```
 
-![1564149882963](C:\Users\IMPlay\Desktop\뜸부기\html\h태그.png)
+![1564149882963](hTag.png)
 
 
 
@@ -116,7 +116,7 @@ HTML을 처음 배울때는 CSS를 모르는 상태이기에  **논리적 태그
   <strong>좋아하는 동물은 <u>강아지와 고양이</u></strong>입니다.
   ```
 
-![1564149928051](C:\Users\IMPlay\Desktop\뜸부기\html\strong와 u태그.png)
+![1564149928051](strong_utag.png)
 
 
 
@@ -140,7 +140,19 @@ HTML을 처음 배울때는 CSS를 모르는 상태이기에  **논리적 태그
 
   2) **p (paragraph) 태그 **; 단락 표현 태그
 
-  하나의 단락을 그룹핑할 수 있도록 열고 닫는 태그가 존재한다. 단락을 표현할 때는 줄바꿈 태그br 태그보다는 css와 함께 p 태그를 이용하는 것이 더 좋다. p 태그를 통해서 단락의 경계를 분명히 하면서 css를 통해서 p 태그의 디자인을 변경할 수 있기 때문이다.
+  하나의 단락을 그룹핑할 수 있도록 열고 닫는 태그가 존재한다. 단락을 표현할 때는 줄바꿈 태그인 br 태그보다는 **css와 함께 p 태그**를 이용하는 것이 더 좋다. p 태그를 통해서 단락의 경계를 분명히 하면서 css를 통해서 p 태그의 디자인을 변경할 수 있기 때문이다.
+
+  주요 attribute
+
+  * **align**: 문단 정렬
+    * left : 왼쪽 정렬
+    * center: 가운데 정렬
+    * right: 오른쪽 정렬
+    * justfy: 맞춤 정렬
+  * **style**: css 기능을 이용해서 문단 표현
+    * margin-top
+    * width: 문단 넓이 지정
+    * height: 문단 길이 지정; 텍스트가 다 안채워져있어도 그 만큼의 문단길이 보장
 
   ``` html
   <p>
@@ -163,20 +175,182 @@ HTML을 처음 배울때는 CSS를 모르는 상태이기에  **논리적 태그
   - <u>href</u>: 이동할 페이지 주소 지정
   - <u>target</u>: 웹페이지 어떻게 열것인지 지정
   - title: 웹페이지 이름 지정; 마우스를 올렸을 때 타이틀에 지정해주었던 값이 표시됨
+  - name: 링크의 이름 지정; 주로 html 문서 내에서 해당 위치로 스크롤 이동할 때 쓰임
 
+  
 
+  ​	**책갈피 기능 만들기**
+
+  ```html
+  <p>
+       <a href = "#bottom"> 하단으로 가입시데이</a>
+  </p>
+  <!--------------
+  어쩌구 저쩌구-----
+  --------------->
+  <p>
+      <a name = "bottom"> 빼꼼 ~ 여기가 문서하단이에요!</a>
+  </p>
+  ```
+
+  
 
 * **img 태그**
 
   주요 attribute
 
   * src: 이미지 경로
+
   * border: 이미지의 경계선(1 px) 지우기
+
   * width: 이미지 너비
+
   * height: 이미지 높이
 
+  * align: 텍스트 내에서 이미지 배치 정렬
+
+    - **left**
+    - **right**
+
+    * top
+
+    * middle
+
+    * bottom
+
+      
+
+  **이미지 경로**
+
+  대부분 웹페이지를 만들 때 로컬에서 HTML 문서를 만든다. 이후  FTP를 통해서 웹서버에 올린다. 이때 이미지를 절대경로로 이미지를 넣었을 때  모두 상대경로로 고쳐줘야 한다. 
+
+  * 절대 경로(고유 경로)
+
+    ```html
+    <img src ="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width = "100" height="200">
+    ```
+
+    
+
+  * 상대 경로
+
+    <u>**HTML 문서 위치를 기준**</u> 으로 경로를 인식한다.  따라서넣고자하는 이미지 파일이 HTML 문서와 동일한 폴더에 있는지 또는 상위 폴더에 있는지 또는 하위 폴더에 있는지를 확인해야 한다. 
+
+    - 동일 폴더
+
+      ```html
+      <img src ="rameon.jpg" style="margin-top: 20px; width: 400px; height: 200px">
+      ```
+
+    - 상위 폴더
+
+      ```html
+      <img src ="../rameon.jpg" style="margin-top: 20px; width: 400px; height: 200px">
+      ```
+
+    - 하위 폴더
+
+      하위 폴더 이름을 images로 가정하자
+
+      ```html
+      <img src ="images/rameon.jpg" style="margin-top: 20px; width: 400px; height: 200px">
+      ```
+
+* table 태그
+
+  ##### table 기본 구성요소
+
+  * table: 테이블 시작과 끝 표시
+    * table의 주요 attribute **border** :border를 1로 해야지 테이블 모양을 볼 수 있다.
+  * tr (table row): 행을 정의
+  * td (table data): 각 행의 셀 정의
+
   ```html
-  <img src ="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" width = "100" height="200">
+  <table border="1">
+          <tr>
+              <td><img style = "width:200px; height:150px" src ="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></td>
+              <td><img src ="rameon.jpg" style="margin-top:20px; width: 400px; height: 200px"></td>
+          </tr>
+  </table>
   ```
 
   
+
+  ##### table 정렬
+
+  주요 attribute
+
+  -  align - center
+
+    
+
+  ##### table 넓이와 높이
+
+  일반적으로 테이블의 높이를 지정하는 경우가 드물다.
+
+  - width
+  - height
+
+  
+
+  ##### table 여백과 경계선
+
+  table 태그의 주요 attribute
+
+  - border: 경계선 두께 지정
+
+  - cellpadding: 셀 여백 지정
+
+  - cellspacing: 셀 사이 공간 지정
+
+    ex1) border=3, cellpadding=10 지정
+
+    ![1564167775854](borderNcellpadding.png)
+
+    
+
+    ex2) cellspacing =10 지정
+
+  ![1564168050236](C:\Users\IMPlay\Desktop\뜸부기\html\cellspacing.png)
+
+  
+
+  
+
+  ##### table 행과 열 확장
+
+  * 행의 확장(왼쪽 → 오른쪽)
+
+    첫번째 행의 셀 수가 두 번째 행의 셀 수가 적으면 테이블 모양이 찌그러진다. **첫 번째 셀에 해당하는 td 태그에서 attribute 중 하나인 <u>colspan</u>**을 두 번째 행의 수, 즉 가장 많은 셀을 가진 행에 따라 값을 정한다.
+
+    ```html
+    <table border="1">
+            <tr>
+                <td colspan = "2"> 내가 좋아하는 것</td>
+            </tr>
+            <tr>
+                <td><img style = "width:200px; height:150px" src ="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"></td>
+                <td><img src ="rameon.jpg" style="margin-top:20px; width: 400px; height: 200px"></td>
+            </tr>
+        </table>
+    ```
+
+    ![1564166238391](colspan.png)
+
+  * 열의 확장(위쪽 → 아래쪽)
+
+    **첫 번째 셀에 해당하는 td 태그에서 attribute 중 하나인 <u>rowspan</u>**을 이용해서 그 셀이 속하는 해당 열로 확장한다. 
+
+    ```html
+    <table border="1">
+            <tr>
+                <td rowspan = "2"> 좋아하는 꽃과 나라</td>
+                <td><img style = "width:250px; height:150px" src = "http://www.wonyesanup.co.kr/news/photo/wonye/82_20051129_1.jpg"></td>
+            </tr>
+            <tr>  
+                <td><img style = "width:250px; height:150px" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRJ8ZhlmtMQvYBiQkKWQW9l9LRXEDS3KupIOIgcM-zcDlxt0Ip" style="margin-top:20px; width: 400px; height: 200px"></td>
+            </tr>
+    </table>
+    ```
+
+    ![1564166860353](C:\Users\IMPlay\Desktop\뜸부기\html\rowspan.png)
