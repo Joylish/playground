@@ -6,7 +6,7 @@
 
 2. 프로젝트 생성 대화상자에서 'Kotlin/JVM' 선택하고 Next를 누른다.
 
-   이를 통해 kotlinc-jvm컴파일러를 사용해서 코틀린 코드를 JVM(Java Virtual Machine)에서 실행할 수 있는 바이트코드로 변환할 수 있다. 우리는 이 과정을 '컴파일'이라고 부른다.
+   이를 통해 kotlinc-jvm 컴파일러를 사용해서 <u>코틀린 코드</u>를 JVM(Java Virtual Machine)에서 실행할 수 있는 바이트코드로 변환할 수 있다. JVM은 변환된 <u>바이트 코드</u>를 콘솔에 출력한다. 우리는 이 과정을 <strong>컴파일</strong>이라고 부른다.
 
 ![NewProjectsBox](./captures/NewProjectsBox.png)
 
@@ -32,9 +32,9 @@
 
 
 
+<strong> 실행하고자 하는 코드를 작성  →  ctrl + enter</strong>
+
+![ExecutingKotlinREPL](./captures/ExecutingKotlinREPL.png)
 
 
-### 인텔리제이 기능 단축키
 
-* *ctrl + shift + f10*: 프로그램 실행 (Run '~~~.kt')
-* 
