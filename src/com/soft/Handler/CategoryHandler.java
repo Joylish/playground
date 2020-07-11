@@ -3,9 +3,6 @@ package com.soft.Controller;
 import com.soft.Printer;
 import com.soft.Service.ManageCategory;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
 
 public class CategoryHandler {
 
@@ -56,7 +53,7 @@ public class CategoryHandler {
     }
 
     public void searchCategory() {
-       
+
     }
 
     static void p(String x) {
