@@ -1,12 +1,9 @@
-package com.soft.Controller;
+package com.soft.Handler;
 
-import com.soft.Controller.CategoryHandler;
-import com.soft.Controller.ItemHandler;
-import com.soft.Controller.ProductHandler;
 import com.soft.Printer;
 
 public class HomeHandler {
-    public void run(){
+    public void start(){
         int userInput = -1;
         Printer.printDivider();
         Printer.println("상품관리시스템 ShoeRack의 홈화면입니다.");
@@ -23,15 +20,15 @@ public class HomeHandler {
                 switch(userInput){
                     case 1:
                         CategoryHandler categoryHandler = new CategoryHandler();
-                        categoryHandler.run();
+                        categoryHandler.start();
                         break;
                     case 2:
                         ProductHandler productHandler = new ProductHandler();
-                        productHandler.run();
+                        productHandler.start();
                         break;
                     case 3:
                         ItemHandler itemHandler = new ItemHandler();
-                        itemHandler.run();
+                        itemHandler.start();
                         break;
                     case 4:
                     case 'q':

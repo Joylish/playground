@@ -1,10 +1,10 @@
 package com.soft;
 
-import com.soft.View.Home;
+import com.soft.Handler.HomeHandler;
 
 public class Main {
     public static void main(String[] args) {
-        Home home = new Home();
-        home.run();
+        HomeHandler home = new HomeHandler();
+        home.start();
     }
 }

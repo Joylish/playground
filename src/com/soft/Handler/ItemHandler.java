@@ -1,9 +1,9 @@
-package com.soft.Controller;
+package com.soft.Handler;
 
 import com.soft.Printer;
 
 public class ItemHandler {
-    public void run() {
+    public void start() {
         int userInput = -1;
         try{
             while(true) {
@@ -29,7 +29,7 @@ public class ItemHandler {
                     case 'q':
                     case 'Q':
                         HomeHandler homeHandler = new HomeHandler();
-                        homeHandler.run();
+                        homeHandler.start();
                         break;
                     default:
                         System.out.println("잘못 입력하셨습니다.");
