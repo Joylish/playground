@@ -1,15 +1,15 @@
-package com.soft.View;
+package com.soft.Controller;
 
 import com.soft.Controller.CategoryHandler;
+import com.soft.Controller.ItemHandler;
 import com.soft.Controller.ProductHandler;
 import com.soft.Printer;
 
-public class Home {
+public class HomeHandler {
     public void run(){
         int userInput = -1;
         Printer.printDivider();
-        Printer.println("반갑습니다 :)");
-        Printer.println("상품관리시스템 ShoeRack 입니다.");
+        Printer.println("상품관리시스템 ShoeRack의 홈화면입니다.");
         try{
             while(true) {
                 Printer.printDivider();
@@ -23,14 +23,15 @@ public class Home {
                 switch(userInput){
                     case 1:
                         CategoryHandler categoryHandler = new CategoryHandler();
-                        categoryHandler.start();
+                        categoryHandler.run();
                         break;
                     case 2:
                         ProductHandler productHandler = new ProductHandler();
-                        productHandler.start();
+                        productHandler.run();
                         break;
                     case 3:
-                        
+                        ItemHandler itemHandler = new ItemHandler();
+                        itemHandler.run();
                         break;
                     case 4:
                     case 'q':
