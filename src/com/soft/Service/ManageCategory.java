@@ -1,6 +1,7 @@
 package com.soft.Service;
 
 import com.soft.Domain.CategorySet;
+import com.soft.Printer;
 
 import java.util.ArrayList;
 
@@ -65,10 +66,9 @@ public class ManageCategory {
         // 중복되는값을 제거하고 ArrayList로 리턴한다!
         ArrayList<String> arrayList = new ArrayList<>();
         for (String data : result) {
-            if (!arrayList.contains(data))
-                arrayList.add(data);
+            if ((!arrayList.contains(data)) && (data != null))
+               arrayList.add(data);
         }
-
         return arrayList;
     }
 
@@ -87,7 +87,7 @@ public class ManageCategory {
         // 중복되는값을 제거하고 ArrayList로 리턴한다!
         ArrayList<String> arrayList = new ArrayList<>();
         for (String data : result) {
-            if (!arrayList.contains(data))
+            if ((!arrayList.contains(data)) && (data != null))
                 arrayList.add(data);
         }
 
@@ -101,15 +101,14 @@ public class ManageCategory {
         int resultSize = 0;
 
         for (int i = 0; i < listSize; i++) {
-            if (category1 == categoryList[i].large && category2 == categoryList[i].medium)
-                result[resultSize] = categoryList[i].small;
-            resultSize++;
+            if ((category1 == categoryList[i].large && category2 == categoryList[i].medium))
+                result[++resultSize] = categoryList[i].small;
         }
 
         // 중복되는값을 제거하고 ArrayList로 리턴한다!
         ArrayList<String> arrayList = new ArrayList<>();
         for (String data : result) {
-            if (!arrayList.contains(data))
+            if ((!arrayList.contains(data))&& (data != null))
                 arrayList.add(data);
         }
 
