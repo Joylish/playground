@@ -1,13 +1,16 @@
 package com.soft.Handler;
 
 import com.soft.Domain.CategorySet;
-import com.soft.Domain.LargeCategory;
+import com.soft.Domain.SmallCategory;
 import com.soft.Printer;
 import com.soft.Service.ManageCategory;
 
+import java.io.IOException;
 import java.util.*;
 
 public class CategoryHandler {
+
+    ManageCategory manageCategory = null;
 
     public void start() {
         int userInput = -1;
@@ -21,15 +24,16 @@ public class CategoryHandler {
                 p("4. 돌아가기");
                 userInput = Printer.intQuestion("입력");
 
+
                 switch (userInput) {
                     case 1:
-                        searchCategory();
+                        requestSearchCategory();
                         break;
                     case 2:
-                        createCategory();
+                        requestCreateCategory();
                         break;
                     case 3:
-                        removeCategory();
+                        requestDeleteCategory();
                         break;
                     case 4:
                     case 'q':
@@ -46,62 +50,51 @@ public class CategoryHandler {
         }
     }
 
-    private void removeCategory() {
+    private void requestDeleteCategory() {
+        manageCategory = new ManageCategory();
+        Printer.printDivider();
+        Printer.println("카테고리 삭제를 진행합니다.");
+        String smallCategory = Printer.stringQuestion("입력");
+        manageCategory.deleteCategory(smallCategory);
     }
 
-    private void createCategory() {
+    private void requestCreateCategory(){
+        manageCategory = new ManageCategory();
+        Printer.printDivider();
+        Printer.println("카테고리(소분류) 등록을 진행합니다.");
+        CategorySet userCategorySet = requestSearchCategorySet();
+        String smallCategory = Printer.stringQuestion("입력");
+        boolean result = false;
+        try {
+            result = manageCategory.createCategory(userCategorySet.large, userCategorySet.medium, smallCategory);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(result){
+            p("카테고리 등록이 완료되었습니다.");
+        }
+        else{
+            p("이미 등록된 카테고리입니다.");
+            requestCreateCategory();
+        }
     }
 
-    public void searchCategory() {
-
+    private void requestSearchCategory() {
+        int userInput = -1;
         Printer.printDivider();
         Printer.println("카테고리 조회를 진행합니다.");
-        Printer.printDivider();
-        int userInput = -1;
-        String userLargeCategory = "";
-        String userMediumCategory = "";
-        String userSmallCategory = "";
-        ManageCategory manageCategory = new ManageCategory();
 
-        Printer.println("대분류를 골라 주세요.");
-        ArrayList<String> largeCategory = manageCategory.show();
-        int index = 0;
-        for (String data : largeCategory) {
-            data = ". " + data;
-            p(++index + data);
-        }
-        userInput = Printer.intQuestion("입력");
-        userLargeCategory = largeCategory.get(userInput - 1);
-
+        CategorySet userCategorySet = requestSearchCategorySet();
 
         Printer.printDivider();
-        Printer.println("중분류를 골라 주세요.");
-        ArrayList<String> mediumCategory = manageCategory.show(userLargeCategory);
-        index = 0;
-        for (String data : mediumCategory) {
-            data = ". " + data;
-            p(++index + data);
-        }
-
-        userInput = Printer.intQuestion("입력");
-        userMediumCategory = mediumCategory.get(userInput - 1);
-
-        Printer.printDivider();
-        Printer.println("소분류 현황입니다.");
-        Printer.printDivider();
-        ArrayList<String> smallCategory = manageCategory.show(userLargeCategory, userMediumCategory);
-        for (String data : smallCategory) {
-            p(data);
-        }
-        Printer.printDivider();
-        System.out.printf("다른 카테고리 목록을 보시겠습니까?", userMediumCategory);
+        System.out.printf("다른 카테고리 목록을 보시겠습니까?");
         Printer.printReturn();
         p("1. 다른 카테고리 보기");
         p("2. 카테고리 홈화면으로 가기");
         userInput = Printer.intQuestion("입력");
         switch (userInput) {
             case 1:
-                searchCategory();
+                requestSearchCategory();
             case 2:
                 start();
             default:
@@ -109,6 +102,49 @@ public class CategoryHandler {
         }
     }
 
+    private CategorySet requestSearchCategorySet() {
+        CategorySet userCategorySet = new CategorySet();
+        Printer.printDivider();
+        int userInput = -1;
+
+        Printer.println("대분류를 골라 주세요.");
+        manageCategory = new ManageCategory();
+        ArrayList<String> largeCategory = manageCategory.getLargeCategoryList();
+        int index = 0;
+        for (String data : largeCategory) {
+            if(index == 0){
+                index++;
+                continue;
+            }
+            data = ". " + data;
+            p(index++ + data);
+        }
+        userInput = Printer.intQuestion("입력");
+        userCategorySet.large = largeCategory.get(userInput - 1);
+
+
+        Printer.printDivider();
+        Printer.println("중분류를 골라 주세요.");
+        p(userCategorySet.large);
+        ArrayList<String> mediumCategory = manageCategory.getMediumCategoryList( userCategorySet.large);
+        index = 0;
+        for (String data : mediumCategory) {
+            data = ". " + data;
+            p(++index + data);
+        }
+
+        userInput = Printer.intQuestion("입력");
+        userCategorySet.medium = mediumCategory.get(userInput - 1);
+
+        Printer.printDivider();
+        Printer.println("소분류 현황입니다.");
+        Printer.printDivider();
+        ArrayList<String> smallCategory = manageCategory.getSmallCategoryList(userCategorySet.large, userCategorySet.medium);
+        for (String data : smallCategory) {
+            p(data);
+        }
+        return userCategorySet;
+    }
 
     static void p(String x) {
         Printer.println(x);

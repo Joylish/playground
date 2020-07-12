@@ -3,6 +3,9 @@ package com.soft.Handler;
 import com.soft.Printer;
 
 public class HomeHandler {
+    CategoryHandler categoryHandler =null;
+    ProductHandler productHandler = null;
+
     public void start(){
         int userInput = -1;
         Printer.printDivider();
@@ -19,11 +22,11 @@ public class HomeHandler {
 
                 switch(userInput){
                     case 1:
-                        CategoryHandler categoryHandler = new CategoryHandler();
+                        categoryHandler = new CategoryHandler();
                         categoryHandler.start();
                         break;
                     case 2:
-                        ProductHandler productHandler = new ProductHandler();
+                        productHandler = new ProductHandler();
                         productHandler.start();
                         break;
                     case 3:

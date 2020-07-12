@@ -3,124 +3,134 @@ package com.soft.Service;
 import com.soft.Domain.CategorySet;
 import com.soft.Printer;
 
+import java.io.*;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeSet;
 
 public class ManageCategory {
-    private CategorySet[] categoryList = new CategorySet[999];
-    int listSize = 35;
+    private int userID = 1;
 
-    public ManageCategory() {
-        this.categoryList[0] = new CategorySet("남자", "운동화", "캔버스화");
-        this.categoryList[1] = new CategorySet("남자", "운동화", "뮬");
-        this.categoryList[2] = new CategorySet("남자", "운동화", "슬립온");
-        this.categoryList[3] = new CategorySet("남자", "운동화", "어글리슈즈");
-        this.categoryList[4] = new CategorySet("남자", "운동화", "스니커즈");
-        this.categoryList[5] = new CategorySet("남자", "운동화", "러닝화");
-        this.categoryList[6] = new CategorySet("남자", "운동화", "우븐슈즈");
+    private String path = "./data/CategoryList.csv";
+    private FileWriter fw = null;
+    private static BufferedReader br = null;
 
-        this.categoryList[7] = new CategorySet("남자", "구두", "더비");
-        this.categoryList[8] = new CategorySet("남자", "구두", "로퍼");
-        this.categoryList[9] = new CategorySet("남자", "구두", "몽크스트랩");
-        this.categoryList[10] = new CategorySet("남자", "구두", "워커/첼시");
-        this.categoryList[11] = new CategorySet("남자", "구두", "블로퍼");
+    private ArrayList<CategorySet> categoryList = new ArrayList<>(999);
+    private int defaultSize = 35;
 
-        this.categoryList[12] = new CategorySet("남자", "샌들/슬리퍼", "가죽샌들");
-        this.categoryList[13] = new CategorySet("남자", "샌들/슬리퍼", "실내화");
-        this.categoryList[14] = new CategorySet("남자", "샌들/슬리퍼", "스포츠샌들");
-        this.categoryList[15] = new CategorySet("남자", "샌들/슬리퍼", "슬라이드");
+    public ManageCategory(){
+        saveCategoryList();
+        for (CategorySet categorySet: categoryList){
+            Printer.println(categorySet.large+ categorySet.medium);
+        }
+    }
 
-        this.categoryList[16] = new CategorySet("여자", "운동화", "캔버스화");
-        this.categoryList[17] = new CategorySet("여자", "운동화", "뮬");
-        this.categoryList[18] = new CategorySet("여자", "운동화", "슬립온");
-        this.categoryList[19] = new CategorySet("여자", "운동화", "어글리슈즈");
-        this.categoryList[20] = new CategorySet("여자", "운동화", "스니커즈");
-        this.categoryList[21] = new CategorySet("여자", "운동화", "러닝화");
-        this.categoryList[22] = new CategorySet("여자", "운동화", "우븐슈즈");
+    private void saveCategoryList(){
+        List<List<String>> list = readCSV(path);
+        for(List<String> line : list) {
+            CategorySet categorySet = new CategorySet(line.get(2), line.get(3), line.get(4));
+            categoryList.add(categorySet);
+        }
 
-        this.categoryList[23] = new CategorySet("여자", "구두", "플랫");
-        this.categoryList[24] = new CategorySet("여자", "구두", "로퍼");
-        this.categoryList[25] = new CategorySet("여자", "구두", "펌프스");
-        this.categoryList[26] = new CategorySet("여자", "구두", "워커");
-        this.categoryList[27] = new CategorySet("여자", "구두", "블로퍼");
-        this.categoryList[28] = new CategorySet("여자", "구두", "블링백");
-        this.categoryList[29] = new CategorySet("여자", "구두", "부츠");
-        this.categoryList[30] = new CategorySet("여자", "구두", "메리제인");
+    }
+    private static List<List<String>> readCSV(String path) {
+        List<List<String>> list = new ArrayList<>();
+        File csv = new File(path);
 
-        this.categoryList[31] = new CategorySet("여자", "샌들/슬리퍼", "가죽샌들");
-        this.categoryList[32] = new CategorySet("여자", "샌들/슬리퍼", "실내화");
-        this.categoryList[33] = new CategorySet("여자", "샌들/슬리퍼", "스포츠샌들");
-        this.categoryList[34] = new CategorySet("여자", "샌들/슬리퍼", "슬라이드");
+        try {
+            br = new BufferedReader(new FileReader(csv));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Charset.forName("UTF-8");
+        String line = "";
+
+        while (true) {
+            try {
+                if (!((line = br.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String[] token = line.split(",");
+            List<String> tempList = new ArrayList<String>(Arrays.asList(token));
+            list.add(tempList);
+        }
+        return list;
     }
 
     // 전체 대분류 목록을 리턴하는 함수
-    public ArrayList<String> show() {
-
-        String[] result = new String[999];
-        int resultSize = 0;
-
-        for (int i = 0; i < listSize; i++) {
-            result[resultSize] = categoryList[i].large;
-            resultSize++;
+    public ArrayList<String> getLargeCategoryList() {
+        ArrayList <String>largeCategoryList = new ArrayList<>();
+        for(CategorySet categorySet: categoryList){
+            largeCategoryList.add(categorySet.large);
         }
-
-        // 중복되는값을 제거하고 ArrayList로 리턴한다!
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (String data : result) {
-            if ((!arrayList.contains(data)) && (data != null))
-               arrayList.add(data);
-        }
-        return arrayList;
+        TreeSet <String> largeCategorySet =new TreeSet<>(largeCategoryList);
+        largeCategoryList = new ArrayList<>(largeCategorySet);
+        return largeCategoryList;
     }
 
     // 인자로 들어온 대분류 대해서 하위 중분류 목록을 리턴하는 함수
-    public ArrayList<String> show(String category1) {
-
-        String[] result = new String[999];
-        int resultSize = 0;
-
-        for (int i = 0; i < listSize; i++) {
-            if (category1 == categoryList[i].large)
-                result[resultSize] = categoryList[i].medium;
-            resultSize++;
+    public ArrayList<String> getMediumCategoryList(String large) {
+        ArrayList <String>mediumCategoryList = new ArrayList<>();
+        for(CategorySet categorySet: categoryList){
+            if(categorySet.large.equals(large)) {
+                Printer.println(categorySet.medium);
+                mediumCategoryList.add(categorySet.medium);
+            }
         }
-
-        // 중복되는값을 제거하고 ArrayList로 리턴한다!
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (String data : result) {
-            if ((!arrayList.contains(data)) && (data != null))
-                arrayList.add(data);
-        }
-
-        return arrayList;
+        TreeSet <String> mediumCategorySet =new TreeSet<>(mediumCategoryList);
+        mediumCategoryList = new ArrayList<>(mediumCategorySet);
+        return mediumCategoryList;
     }
 
     // 인자로 들어온 대분류, 중분류에 대해서 하위 소분류 목록을 리턴하는 함수
-    public ArrayList<String> show(String category1, String category2) {
+    public ArrayList<String> getSmallCategoryList(String large, String medium) {
 
-        String[] result = new String[999];
-        int resultSize = 0;
-
-        for (int i = 0; i < listSize; i++) {
-            if ((category1 == categoryList[i].large && category2 == categoryList[i].medium))
-                result[++resultSize] = categoryList[i].small;
+        ArrayList <String> smallCategoryList = new ArrayList<>();
+        for(CategorySet categorySet: categoryList){
+            if(categorySet.large.equals(large) && categorySet.medium.equals(medium)) {
+                smallCategoryList.add(categorySet.small);
+            }
         }
-
-        // 중복되는값을 제거하고 ArrayList로 리턴한다!
-        ArrayList<String> arrayList = new ArrayList<>();
-        for (String data : result) {
-            if ((!arrayList.contains(data))&& (data != null))
-                arrayList.add(data);
-        }
-
-        return arrayList;
+        TreeSet <String> smallCategorySet =new TreeSet<>(smallCategoryList);
+        smallCategoryList = new ArrayList<>(smallCategorySet);
+        return smallCategoryList;
     }
 
-    public int create(String l, String m, String s) {
+    public boolean createCategory(String large, String medium, String small) throws IOException {
+        try {
+            fw = new FileWriter(path);
+//            StringBuilder builder =new StringBuilder();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        CategorySet categorySet = new CategorySet(large, medium, small);
+        if ((categoryList.contains(categorySet))) {
+            return false;
+        }
+//        System.out.println(categorySet.small);
+        fw.append(String.valueOf(categoryList.size()));
+        fw.append(',');
+        fw.append(String.valueOf(userID));
+        fw.append(',');
+        fw.append(large);
+        fw.append(',');
+        fw.append(medium);
+        fw.append(',');
+        fw.append(small);
+        fw.append('\n');
+        saveCategoryList();
+        return true;
+    }
 
-        CategorySet cs = new CategorySet(l,m,s);
-        this.categoryList[this.listSize] = cs;
-        this.listSize++;
-
-        return 0;
+    public void deleteCategory(String small) {
+        ArrayList<String> smallCategoryList = new ArrayList<>();
+        for (CategorySet categorySet : categoryList) {
+            if (categorySet.small.equals(small)) {
+                categoryList.remove(categorySet);
+            }
+        }
     }
 }
