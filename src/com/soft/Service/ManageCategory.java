@@ -17,7 +17,7 @@ public class ManageCategory {
     private static BufferedReader br = null;
 
     private ArrayList<CategorySet> categoryList = new ArrayList<>(999);
-    private int defaultSize = 35;
+    private int defaultSize = 34;
 
     public ManageCategory(){
         saveCategoryList();
@@ -106,16 +106,28 @@ public class ManageCategory {
         return smallCategoryList;
     }
 
-    private boolean checkDelete(String targetSmallCategory) {
-        ArrayList<String> defaultSmallCategoryList = new ArrayList<>();
-        for(CategorySet categorySet: categoryList){
-            if (defaultSmallCategoryList.contains(categorySet)||categoryList.indexOf(categorySet) == 0){
+    public ArrayList<String> getDefaultCategoryList() {
+        ArrayList <String> smallCategoryList = new ArrayList<>();
+        ArrayList <String> defaultSmallCategoryList = new ArrayList<>();
+
+        for(int i = 1; i<defaultSize-1; i++){
+            smallCategoryList.add(categoryList.get(i).small);
+        }
+
+        for(String small: smallCategoryList){
+            if (defaultSmallCategoryList.contains(small)){
                 continue;
             }
-            defaultSmallCategoryList.add(categorySet.small);
+            defaultSmallCategoryList.add(small);
         }
-        for(String smallCategory: defaultSmallCategoryList){
-//            Printer.println(smallCategory);
+
+        return defaultSmallCategoryList;
+    }
+
+    private boolean checkDelete(String targetSmallCategory) {
+        ArrayList<String> smallCategoryList = getDefaultCategoryList();
+
+        for(String smallCategory: smallCategoryList){
             if(smallCategory.equals(targetSmallCategory)){
                 return false;
             }
