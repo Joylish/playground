@@ -101,6 +101,7 @@ public class CategoryHandler {
         int userInput = -1;
         Printer.printDivider();
         Printer.println("카테고리 조회를 진행합니다.");
+        CategorySet userCategorySet = requestSearchCategorySet();
         Printer.printDivider();
         System.out.printf("다른 카테고리 목록을 보시겠습니까?");
         Printer.printReturn();

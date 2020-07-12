@@ -21,9 +21,6 @@ public class ManageCategory {
 
     public ManageCategory(){
         saveCategoryList();
-//        for (CategorySet categorySet: categoryList){
-//            Printer.println(categorySet.large+ categorySet.medium);
-//        }
     }
 
     private void saveCategoryList(){
@@ -101,12 +98,15 @@ public class ManageCategory {
     public ArrayList<String> getSmallCategoryList() {
         ArrayList <String> smallCategoryList = new ArrayList<>();
         for(CategorySet categorySet: categoryList){
+            if (smallCategoryList.contains(categorySet.small)||categoryList.indexOf(categorySet) == 0){
+                continue;
+            }
             smallCategoryList.add(categorySet.small);
         }
         return smallCategoryList;
     }
 
-    public boolean checkDelete(String smallCategory) {
+    private boolean checkDelete(String smallCategory) {
         ArrayList<String> defaultSmallCategoryList = new ArrayList<>();
         for(int i = 1; i<=defaultSize; i++){
             defaultSmallCategoryList.add(categoryList.get(i).small);
@@ -124,7 +124,7 @@ public class ManageCategory {
         if ((categoryList.contains(categorySet))) {
             return false;
         }
-        fw.append(String.valueOf(categoryList.size()));
+        fw.append(String.valueOf(categoryList.size()+1));
         fw.append(',');
         fw.append(String.valueOf(userID));
         fw.append(',');
@@ -141,8 +141,7 @@ public class ManageCategory {
     }
 
     public int deleteCategory(String small) throws IOException {
-        BufferedWriter bw = null;
-        PrintWriter pw = null;
+        PrintWriter pw;
         File csv = new File(path);
         try {
             br = new BufferedReader(new FileReader(csv));
