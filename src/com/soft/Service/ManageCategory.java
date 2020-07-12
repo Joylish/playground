@@ -2,6 +2,7 @@ package com.soft.Service;
 
 import com.soft.Domain.CategorySet;
 import com.soft.Printer;
+import sun.dc.pr.PRError;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -28,19 +29,23 @@ public class ManageCategory {
     }
 
     private void saveCategoryList(){
-        List<List<String>> list = readCSV(path);
+         List<List<String>> list = readCSV(path);
+        System.out.print(list.size());
         for(List<String> line : list) {
             CategorySet categorySet = new CategorySet(line.get(2), line.get(3), line.get(4));
             categoryList.add(categorySet);
         }
+        Printer.println("1111111111");
+
 
     }
     private static List<List<String>> readCSV(String path) {
         List<List<String>> list = new ArrayList<>();
-        File csv = new File(path);
 
         try {
+            File csv = new File(path);
             br = new BufferedReader(new FileReader(csv));
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -53,9 +58,9 @@ public class ManageCategory {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String[] token = line.split(",");
-            List<String> tempList = new ArrayList<String>(Arrays.asList(token));
-            list.add(tempList);
+            String[] token = line.split("\\s|,|\t", -1);
+            List <String> lineList= new ArrayList<>(Arrays.asList(token));
+            list.add(lineList);
         }
         return list;
     }
