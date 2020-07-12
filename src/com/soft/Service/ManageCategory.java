@@ -106,12 +106,21 @@ public class ManageCategory {
         return smallCategoryList;
     }
 
-    private boolean checkDelete(String smallCategory) {
+    private boolean checkDelete(String targetSmallCategory) {
         ArrayList<String> defaultSmallCategoryList = new ArrayList<>();
-        for(int i = 1; i<=defaultSize; i++){
-            defaultSmallCategoryList.add(categoryList.get(i).small);
+        for(CategorySet categorySet: categoryList){
+            if (defaultSmallCategoryList.contains(categorySet)||categoryList.indexOf(categorySet) == 0){
+                continue;
+            }
+            defaultSmallCategoryList.add(categorySet.small);
         }
-        return !defaultSmallCategoryList.contains(smallCategory);
+        for(String smallCategory: defaultSmallCategoryList){
+//            Printer.println(smallCategory);
+            if(smallCategory.equals(targetSmallCategory)){
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean createCategory(String large, String medium, String small) throws IOException {
@@ -141,14 +150,16 @@ public class ManageCategory {
     }
 
     public int deleteCategory(String small) throws IOException {
-        PrintWriter pw;
+        PrintWriter pw = null;
         File csv = new File(path);
         try {
             br = new BufferedReader(new FileReader(csv));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         ArrayList <String> savedSmallCategoryList = getSmallCategoryList();
+
         if(!checkDelete(small)){
             return -1;
         }

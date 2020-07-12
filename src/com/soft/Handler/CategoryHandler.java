@@ -52,6 +52,7 @@ public class CategoryHandler {
         manageCategory = new ManageCategory();
         Printer.printDivider();
         Printer.println("카테고리 삭제를 진행합니다.");
+        Printer.printDivider();
         ArrayList <String>smallCategoryList = manageCategory.getSmallCategoryList();
         for(String smallCategory: smallCategoryList){
             p(smallCategory);
@@ -60,11 +61,12 @@ public class CategoryHandler {
         int result = 1111;
         try {
             result = manageCategory.deleteCategory(smallCategory);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         if(result == 0){
-            p("카테고리 등록이 완료되었습니다.");
+            p("카테고리 삭제가 완료되었습니다.");
         }
         else if(result == -1){
             p("삭제 불가능한 카테고리입니다.");
