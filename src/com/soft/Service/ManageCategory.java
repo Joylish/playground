@@ -186,7 +186,6 @@ public class ManageCategory {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Printer.println(line);
             if(line.contains(small)) {
                 continue;
             }
@@ -195,7 +194,6 @@ public class ManageCategory {
         br.close();
         pw = new PrintWriter(new BufferedWriter(new FileWriter(csv)));
         for (String smallCategory : smallCategoryList){
-            Printer.println(smallCategory);
             pw.println(smallCategory);
         }
         Objects.requireNonNull(pw).close();

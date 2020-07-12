@@ -65,16 +65,32 @@ public class CategoryHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        Printer.printDivider();
+
         if(result == 0){
             p("카테고리 삭제가 완료되었습니다.");
         }
         else if(result == -1){
             p("삭제 불가능한 카테고리입니다.");
-            requestDeleteCategory();
         }
         else{
             p("없는 카테고리입니다.");
-            requestDeleteCategory();
+        }
+        Printer.printDivider();
+        System.out.printf("계속 카테고리 삭제를 이용하시겠습니까?");
+        Printer.printReturn();
+        p("1. 카테고리 삭제하기");
+        p("2. 카테고리 홈화면으로 가기");
+        int userInput = Printer.intQuestion("입력");
+        switch (userInput) {
+            case 1:
+                requestDeleteCategory();
+                break;
+            case 2:
+                start();
+                break;
+             default:
+                 System.out.println("잘못 입력하셨습니다.");
         }
     }
 
