@@ -1,5 +1,4 @@
 package com.soft.Service;
-
 import com.soft.Domain.CategorySet;
 import com.soft.Printer;
 import com.sun.deploy.util.StringUtils;
@@ -12,7 +11,7 @@ import java.util.*;
 public class ManageCategory {
     private int userID = 1;
 
-    private String path = "./data/CategoryList.csv";
+    private String path = "productManagement-master/data/CategoryList.csv";
     private FileWriter fw = null;
     private static BufferedReader br = null;
 
