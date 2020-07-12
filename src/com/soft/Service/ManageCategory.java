@@ -2,14 +2,12 @@ package com.soft.Service;
 
 import com.soft.Domain.CategorySet;
 import com.soft.Printer;
+import com.sun.deploy.util.StringUtils;
 import sun.dc.pr.PRError;
 
 import java.io.*;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.TreeSet;
+import java.util.*;
 
 public class ManageCategory {
     private int userID = 1;
@@ -100,10 +98,25 @@ public class ManageCategory {
         return smallCategoryList;
     }
 
+    public ArrayList<String> getSmallCategoryList() {
+        ArrayList <String> smallCategoryList = new ArrayList<>();
+        for(CategorySet categorySet: categoryList){
+            smallCategoryList.add(categorySet.small);
+        }
+        return smallCategoryList;
+    }
+
+    public boolean checkDelete(String smallCategory) {
+        ArrayList<String> defaultSmallCategoryList = new ArrayList<>();
+        for(int i = 1; i<=defaultSize; i++){
+            defaultSmallCategoryList.add(categoryList.get(i).small);
+        }
+        return !defaultSmallCategoryList.contains(smallCategory);
+    }
+
     public boolean createCategory(String large, String medium, String small) throws IOException {
         try {
             fw = new FileWriter(path, true);
-//            StringBuilder builder =new StringBuilder();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -127,12 +140,43 @@ public class ManageCategory {
         return true;
     }
 
-    public void deleteCategory(String small) {
-        ArrayList<String> smallCategoryList = new ArrayList<>();
-        for (CategorySet categorySet : categoryList) {
-            if (categorySet.small.equals(small)) {
-                categoryList.remove(categorySet);
-            }
+    public int deleteCategory(String small) throws IOException {
+        BufferedWriter bw = null;
+        PrintWriter pw = null;
+        File csv = new File(path);
+        try {
+            br = new BufferedReader(new FileReader(csv));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        ArrayList <String> savedSmallCategoryList = getSmallCategoryList();
+        if(!checkDelete(small)){
+            return -1;
+        }
+        if(!savedSmallCategoryList.contains(small)){
+            return -2;
+        }
+        String line = "";
+        ArrayList <String> smallCategoryList = new ArrayList<>();
+        while (true) {
+            try {
+                if (!((line = br.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Printer.println(line);
+            if(line.contains(small)) {
+                continue;
+            }
+           smallCategoryList.add(line);
+        }
+        br.close();
+        pw = new PrintWriter(new BufferedWriter(new FileWriter(csv)));
+        for (String smallCategory : smallCategoryList){
+            Printer.println(smallCategory);
+            pw.println(smallCategory);
+        }
+        Objects.requireNonNull(pw).close();
+        return 0;
     }
 }

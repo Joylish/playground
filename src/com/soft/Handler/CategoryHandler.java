@@ -1,7 +1,6 @@
 package com.soft.Handler;
 
 import com.soft.Domain.CategorySet;
-import com.soft.Domain.SmallCategory;
 import com.soft.Printer;
 import com.soft.Service.ManageCategory;
 
@@ -10,7 +9,7 @@ import java.util.*;
 
 public class CategoryHandler {
 
-    ManageCategory manageCategory = null;
+    private ManageCategory manageCategory = null;
 
     public void start() {
         int userInput = -1;
@@ -23,7 +22,6 @@ public class CategoryHandler {
                 p("3. 카테고리 삭제");
                 p("4. 돌아가기");
                 userInput = Printer.intQuestion("입력");
-
 
                 switch (userInput) {
                     case 1:
@@ -54,8 +52,28 @@ public class CategoryHandler {
         manageCategory = new ManageCategory();
         Printer.printDivider();
         Printer.println("카테고리 삭제를 진행합니다.");
-        String smallCategory = Printer.stringQuestion("입력");
-        manageCategory.deleteCategory(smallCategory);
+        ArrayList <String>smallCategoryList = manageCategory.getSmallCategoryList();
+        for(String smallCategory: smallCategoryList){
+            p(smallCategory);
+        }
+        String smallCategory = Printer.stringQuestion("삭제할 소분류 입력");
+        int result = 1111;
+        try {
+            result = manageCategory.deleteCategory(smallCategory);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(result == 0){
+            p("카테고리 등록이 완료되었습니다.");
+        }
+        else if(result == -1){
+            p("삭제 불가능한 카테고리입니다.");
+            requestDeleteCategory();
+        }
+        else{
+            p("없는 카테고리입니다.");
+            requestDeleteCategory();
+        }
     }
 
     private void requestCreateCategory(){
@@ -83,9 +101,6 @@ public class CategoryHandler {
         int userInput = -1;
         Printer.printDivider();
         Printer.println("카테고리 조회를 진행합니다.");
-
-        CategorySet userCategorySet = requestSearchCategorySet();
-
         Printer.printDivider();
         System.out.printf("다른 카테고리 목록을 보시겠습니까?");
         Printer.printReturn();
