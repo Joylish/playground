@@ -23,22 +23,19 @@ public class ManageCategory {
 
     public ManageCategory(){
         saveCategoryList();
-        for (CategorySet categorySet: categoryList){
-            Printer.println(categorySet.large+ categorySet.medium);
-        }
+//        for (CategorySet categorySet: categoryList){
+//            Printer.println(categorySet.large+ categorySet.medium);
+//        }
     }
 
     private void saveCategoryList(){
          List<List<String>> list = readCSV(path);
-        System.out.print(list.size());
         for(List<String> line : list) {
             CategorySet categorySet = new CategorySet(line.get(2), line.get(3), line.get(4));
             categoryList.add(categorySet);
         }
-        Printer.println("1111111111");
-
-
     }
+
     private static List<List<String>> readCSV(String path) {
         List<List<String>> list = new ArrayList<>();
 
@@ -81,7 +78,6 @@ public class ManageCategory {
         ArrayList <String>mediumCategoryList = new ArrayList<>();
         for(CategorySet categorySet: categoryList){
             if(categorySet.large.equals(large)) {
-                Printer.println(categorySet.medium);
                 mediumCategoryList.add(categorySet.medium);
             }
         }
@@ -106,7 +102,7 @@ public class ManageCategory {
 
     public boolean createCategory(String large, String medium, String small) throws IOException {
         try {
-            fw = new FileWriter(path);
+            fw = new FileWriter(path, true);
 //            StringBuilder builder =new StringBuilder();
         } catch (IOException e) {
             e.printStackTrace();
@@ -115,7 +111,6 @@ public class ManageCategory {
         if ((categoryList.contains(categorySet))) {
             return false;
         }
-//        System.out.println(categorySet.small);
         fw.append(String.valueOf(categoryList.size()));
         fw.append(',');
         fw.append(String.valueOf(userID));
@@ -126,6 +121,8 @@ public class ManageCategory {
         fw.append(',');
         fw.append(small);
         fw.append('\n');
+        fw.flush();
+        fw.close();
         saveCategoryList();
         return true;
     }

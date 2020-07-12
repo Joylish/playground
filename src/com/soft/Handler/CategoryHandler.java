@@ -63,7 +63,7 @@ public class CategoryHandler {
         Printer.printDivider();
         Printer.println("카테고리(소분류) 등록을 진행합니다.");
         CategorySet userCategorySet = requestSearchCategorySet();
-        String smallCategory = Printer.stringQuestion("입력");
+        String smallCategory = Printer.stringQuestion("추가할 소분류 입력");
         boolean result = false;
         try {
             result = manageCategory.createCategory(userCategorySet.large, userCategorySet.medium, smallCategory);
@@ -120,12 +120,11 @@ public class CategoryHandler {
             p(index++ + data);
         }
         userInput = Printer.intQuestion("입력");
-        userCategorySet.large = largeCategory.get(userInput - 1);
+        userCategorySet.large = largeCategory.get(userInput);
 
 
         Printer.printDivider();
         Printer.println("중분류를 골라 주세요.");
-        p(userCategorySet.large);
         ArrayList<String> mediumCategory = manageCategory.getMediumCategoryList( userCategorySet.large);
         index = 0;
         for (String data : mediumCategory) {
