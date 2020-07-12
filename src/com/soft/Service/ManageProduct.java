@@ -8,7 +8,7 @@ public class ManageProduct {
 	int listSize = 1;
 
 	public ManageProduct() {
-		this.ProductList.add(new Product(1,"나이키프리런",245,39000,30));
+		this.ProductList.add(new Product("Asdasd123","나이키프리런",245,39000,30));
 	}
 
 	// 모든 상품목록 리턴하는 함수
@@ -38,7 +38,7 @@ public class ManageProduct {
 		String[] result = new String[4];
 		for (int i = 0; i < listSize; i++) {
 			if (ProductList.get(i).productName.equals(name)) {
-				result[0] = Integer.toString((ProductList.get(i).productCode));
+				result[0] = (ProductList.get(i).productCode);
 				result[1] = ProductList.get(i).productName;
 				result[2] = Integer.toString(ProductList.get(i).productSize);
 				result[3] = Integer.toString(ProductList.get(i).productPrice);
@@ -54,8 +54,8 @@ public class ManageProduct {
 	}
 
 	// 상품추가하는 함수
-	public boolean insert(String name, int size, int price, int quantity) {
-		this.ProductList.add(new Product(listSize, name, size, price, quantity));
+	public boolean insert(String Code, String name, int size, int price, int quantity) {
+		this.ProductList.add(new Product(Code, name, size, price, quantity));
 		listSize++;
 		System.out.println("완료");
 		return true;

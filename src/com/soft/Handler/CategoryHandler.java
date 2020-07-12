@@ -178,6 +178,62 @@ public class CategoryHandler {
         }
         return userCategorySet;
     }
+    
+    public String SelectCategorySet() {
+        CategorySet userCategorySet = new CategorySet();
+        Printer.printDivider();
+        int userInput = -1;
+
+        Printer.println("대분류를 골라 주세요.");
+        manageCategory = new ManageCategory();
+        ArrayList<String> largeCategory = manageCategory.getLargeCategoryList();
+        int index = 0;
+        for (String data : largeCategory) {
+            if(index == 0){
+                index++;
+                continue;
+            }
+            data = ". " + data;
+            p(index++ + data);
+        }
+        userInput = Printer.intQuestion("입력");
+        userCategorySet.large = largeCategory.get(userInput);
+        
+        String TotalCode =  "L"+Integer.toHexString(userCategorySet.large.charAt(0) | 0x1000).substring(1);
+
+        Printer.printDivider();
+        Printer.println("중분류를 골라 주세요.");
+        ArrayList<String> mediumCategory = manageCategory.getMediumCategoryList( userCategorySet.large);
+        index = 0;
+        for (String data : mediumCategory) {
+            data = ". " + data;
+            p(++index + data);
+        }
+
+        userInput = Printer.intQuestion("입력");
+        userCategorySet.medium = mediumCategory.get(userInput - 1);
+
+        TotalCode += "M"+Integer.toHexString(userCategorySet.medium.charAt(0) | 0x1000).substring(1);
+        
+        Printer.printDivider();
+        Printer.println("소분류를 골라 주세요.");
+        ArrayList<String> smallCategory = manageCategory.getSmallCategoryList(userCategorySet.large, userCategorySet.medium);
+        index = 0;
+        for (String data : smallCategory) {
+            data = ". " + data;
+            p(++index + data);
+        }
+
+        userInput = Printer.intQuestion("입력");
+        userCategorySet.small = mediumCategory.get(userInput - 1);
+
+        TotalCode += "S"+Integer.toHexString(userCategorySet.small.charAt(0) | 0x1000).substring(1);
+        
+        
+        return TotalCode;
+  
+    }
+
 
     static void p(String x) {
         Printer.println(x);

@@ -10,7 +10,7 @@ import com.soft.Service.ManageProduct;
 public class ProductHandler {
 	private ManageProduct mp = new ManageProduct();
 
-	public void start() {
+	public void start(CategoryHandler C) {
 		int userInput = -1;
 		try {
 			while (true) {
@@ -27,7 +27,7 @@ public class ProductHandler {
 					searchProduct();
 					break;
 				case 2:
-					createProduct();
+					createProduct(C);
 					break;
 				case 3:
 					removeProduct();
@@ -68,7 +68,7 @@ public class ProductHandler {
 		}
 	}
 
-	public void createProduct() {
+	public void createProduct(CategoryHandler C) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("등록할 상품이름을 입력하세요: ");
 		String name = sc.next();
@@ -78,7 +78,7 @@ public class ProductHandler {
 		int price = sc.nextInt();
 		System.out.println("재고를 입력하세요: ");
 		int quantity = sc.nextInt();
-		mp.insert(name, size, price,quantity);
+		mp.insert(C.SelectCategorySet(),name, size, price,quantity);
 	}
 
 	public void removeProduct() {

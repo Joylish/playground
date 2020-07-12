@@ -3,16 +3,19 @@ package com.soft.Handler;
 import com.soft.Printer;
 
 public class HomeHandler {
-    CategoryHandler categoryHandler =null;
-    ProductHandler productHandler = null;
+    private CategoryHandler categoryHandler =new CategoryHandler();
+    private ProductHandler productHandler = new ProductHandler();
 
     public void start(){
         int userInput = -1;
         Printer.printDivider();
         Printer.println("상품관리시스템 ShoeRack의 홈화면입니다.");
+        
         try{
+        	
             while(true) {
-                Printer.printDivider();
+            	 
+            	Printer.printDivider();
                 Printer.println("원하시는 메뉴를 골라 주세요.");
                 p("1. 카테고리 관리");
                 p("2. 상품 관리");
@@ -22,12 +25,10 @@ public class HomeHandler {
 
                 switch(userInput){
                     case 1:
-                        categoryHandler = new CategoryHandler();
                         categoryHandler.start();
                         break;
                     case 2:
-                        productHandler = new ProductHandler();
-                        productHandler.start();
+                        productHandler.start(categoryHandler);
                         break;
                     case 3:
                         ItemHandler itemHandler = new ItemHandler();
