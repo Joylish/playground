@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+#container{
+    float: center;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{text-align: center;}
+input{display: block;}
+input[type="text"],
+input[type="password"]{width:100%;}

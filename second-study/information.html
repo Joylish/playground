@@ -1,0 +1,64 @@
+<html lang="ko">
+
+<head>
+    <title>프로젝트 안내정보</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/information.css">
+
+</head>
+
+<body>
+    <section id="background">
+        <article id="title">프로젝트 안내</article>
+        <article id="answer">
+            <table>
+                <tr>
+                    <th>선택</th>
+                    <th>프로젝트명</th>
+                </tr>
+                <tr>
+                    <td><input type = "radio" name="project" value = "p001" onclick="changeInfo(this.value)"></td>
+                    <td>전자인사관리시스템</td>
+                </tr>
+                <tr>
+                    <td><input type = "radio" name="project" value = "p002" onclick="changeInfo(this.value)"></td>
+                    <td>도서관리시스템</td>
+                </tr>
+                <tr>
+                    <td><input type = "radio" name="project" value = "p003" onclick="changeInfo(this.value)"></td>
+                    <td>사이버서비스시스템</td>
+                </tr>
+                <tr>
+                    <td><input type = "radio" name="project" value = "p004" onclick="changeInfo(this.value)"></td>
+                    <td>스마트카드모바일서비스티머니앱</td>
+                </tr>
+                <tr>
+                    <td><input type = "radio" name="project" value = "p005" onclick="changeInfo(this.value)"></td>
+                    <td>모바일소셜네트워크서비스앱</td>
+                </tr>
+                <tr>
+                    <td><input type = "radio" name="project" value = "p006" onclick="changeInfo(this.value)"></td>
+                    <td>안드로이드게임앱</td>
+                </tr>     
+           </table>
+            
+        </article>
+        <article id="projectInfo">
+            <p>
+            <b>프로젝트번호</b>
+            <div id = "pno"></div>
+            </p>
+            <p>
+            <b>프로젝트관리자</b>
+            <div id = "pmgr" ></div>
+            </p>
+            <p>
+            <b>프로젝트설명</b>
+            <div id = "pdescription"></div>
+            </p>
+        </article>
+    </section>
+    <script src="javascript/information.js"></script>
+</body>
+
+</html>

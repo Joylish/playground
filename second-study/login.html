@@ -1,0 +1,25 @@
+<html lang="ko">
+<head>
+	<title>login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+	<section id = "container" >
+        <h1 id= "title">로그인</h1>
+		<article id = "contents">
+            로그인이 필요한 서비스입니다.
+		</article>
+		<article id ="inputcontainer">
+            <label for="userId"><b>ID</b></label>
+            <input type="text" id = "userId" placeholder="Enter ID" autofocus></input>
+            <label for="password"><b>Password</b></label>
+            <input type="password" id = "password" placeholder="Enter Password" ></input>
+			<button type="button" id = "submitButton" onclick="check()">로그인</button>
+        </article>
+	</section>
+	<script src="javascript/login.js"></script>
+</body>
+
+</html>
