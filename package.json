@@ -1,0 +1,15 @@
+{
+  "name": "demo-yjs-ipfs",
+  "version": "0.0.1",
+  "description": "know how Yjs work out",
+  "main": "index.js",
+  "scripts": {
+    "test": "http-server -c-1 -p 1112 public"
+  },
+  "author": "Joylish <yeonzzu2@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^16.5.2",
+    "http-server": "^0.12.3"
+  }
+}
