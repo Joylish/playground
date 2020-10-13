@@ -4,12 +4,14 @@
   "description": "know how Yjs work out",
   "main": "index.js",
   "scripts": {
-    "test": "http-server -c-1 -p 1112 public"
+    "test": "http-server -c-1 -p 1113 public",
+    "build": "browserify src/app.js -o public/js/app.js -d"
   },
   "author": "Joylish <yeonzzu2@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "browserify": "^16.5.2",
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "ipfs": "^0.50.2"
   }
 }
