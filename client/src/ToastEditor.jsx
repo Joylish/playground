@@ -5,19 +5,20 @@ import '@toast-ui/editor/dist/toastui-editor.css';
 import { Editor } from '@toast-ui/react-editor';
 
 
-export default function ToastEditor(){
+const ToastEditor = () => {
   const handleFocus = () => {
     console.log('Editor에서 작성 중..');
   };
- 
-  return (
+  return (  
     <Editor
       previewStyle="vertical"
       height="400px"
       initialEditType="markdown"
-      initialValue="마크다운 문법에 따라 작성해주세요."
+      initialValue= '마크다운 문법으로 작성해주세요!'
       onFocus={handleFocus}
     />
   );
   
 }
+
+export default ToastEditor;

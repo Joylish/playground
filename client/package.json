@@ -7,6 +7,10 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "@toast-ui/react-editor": "^2.4.0",
+    "body-parser": "^1.19.0",
+    "cores": "^0.8.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "mobx": "^6.0.1",
     "mobx-react": "^7.0.0",
     "react": "^16.14.0",
@@ -38,5 +42,6 @@
     "@babel/plugin-proposal-decorators": "^7.12.1",
     "customize-cra": "^1.0.0",
     "react-app-rewired": "^2.1.6"
-  }
+  },
+  "proxy": "http://localhost:3333"
 }

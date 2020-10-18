@@ -4,8 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel start:**",
+    "start:client": "cd client && yarn start",
+    "start:server": "node ./server/bin/www"
   },
   "author": "joylish",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express-generator": "^4.16.1",
+    "npm-run-all": "^4.1.5"
+  }
 }
