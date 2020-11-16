@@ -1,5 +1,8 @@
-import {WishList, WishListItem} from './WishList'
+import {reaction} from 'mobx'
 import {getSnapshot, onSnapshot, onPatch} from 'mobx-state-tree'
+
+import {WishList, WishListItem} from './WishList'
+
 
 it('can create a instance of a model "WishListItem"', ()=>{
   const item = WishListItem.create({
@@ -61,8 +64,33 @@ it("can add new items", ()=>{
   });
 
   // __snapshots 폴더에 기록됨
-  expect(getSnapshot).toMatchSnapshot()
-  expect(states).toMatchSnapshot()
-  expect(patches).toMatchSnapshot()
+  // expect(getSnapshot).toMatchSnapshot()
+  // expect(states).toMatchSnapshot()
+  // expect(patches).toMatchSnapshot()
   
+})
+
+it("can calculate the total price of a wishList", ()=>{
+  const list = WishList.create({
+    items: [
+      {
+        name: "Happy Box",
+        price: 2000,
+      },
+      {
+        name: "White",
+        price: 10,
+        image: "",
+      },
+    ],
+  });
+  
+  expect(list.totalPrice).toBe(2010)
+
+  let changed = 0
+  reaction(()=> list.totalPrice, () => changed++)
+  expect(changed).toBe(0)
+  console.log(list.totalPrice)
+  list.items[0].changePrice(2010)
+  expect(changed).toBe(1)
 })
