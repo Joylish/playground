@@ -19,7 +19,7 @@ export const WishListItem = types
   }))
 
 export const WishList = types.model({
-  items: types.optional(types.array(WishListItem),[])
+  items: types.optional(types.array(WishListItem),[]),
 }).actions(self=>({
   add(item){
     self.items.push(item)

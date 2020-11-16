@@ -1,4 +1,5 @@
 import {WishList, WishListItem} from './WishList'
+import {getSnapshot, onSnapshot, onPatch} from 'mobx-state-tree'
 
 it('can create a instance of a model "WishListItem"', ()=>{
   const item = WishListItem.create({
@@ -28,6 +29,17 @@ it("can create a wishList", ()=>{
 
 it("can add new items", ()=>{
   const list = WishList.create()
+  const states = []
+  const patches = []
+
+  onSnapshot(list, snapshot => {
+    states.push(snapshot)
+  })
+
+  onPatch(list, patch=>{
+    patches.push(patch)
+  })
+
   list.add(WishListItem.create({
     name: "Snow",
     price: 10
@@ -37,5 +49,20 @@ it("can add new items", ()=>{
   expect(list.items[0].name).toBe("Snow")
   list.items[0].changeName("White")
   expect(list.items[0].name).toBe("White");
+
+  expect(getSnapshot(list)).toEqual({
+    items: [
+      {
+        name: "White",
+        price: 10,
+        image: ""
+      },
+    ],
+  });
+
+  // __snapshots 폴더에 기록됨
+  expect(getSnapshot).toMatchSnapshot()
+  expect(states).toMatchSnapshot()
+  expect(patches).toMatchSnapshot()
   
 })
