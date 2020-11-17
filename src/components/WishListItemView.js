@@ -31,6 +31,10 @@ const WishListItemView = ({item}) => {
     setState({clone: null, edit: false})
   };
 
+  const onRemove = () => {
+    item.remove()
+  }
+
   return state.edit ? (
     <li className="item" style={{ display: "flex" }}>
       <WishListItemEdit item={item} />
@@ -48,8 +52,9 @@ const WishListItemView = ({item}) => {
       )}
       <h3>{item.name}</h3>
       <span>{item.price}</span>
-      <span>
+      <span style={{ display: "flex" }}>
         <button onClick={onToggleEdit}>✏️</button>
+        <button onClick={onRemove}>🗑</button>
       </span>
     </li>
   );
