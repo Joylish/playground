@@ -90,7 +90,6 @@ it("can calculate the total price of a wishList", ()=>{
   let changed = 0
   reaction(()=> list.totalPrice, () => changed++)
   expect(changed).toBe(0)
-  console.log(list.totalPrice)
   list.items[0].changePrice(2010)
   expect(changed).toBe(1)
 })
