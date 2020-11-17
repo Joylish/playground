@@ -1,10 +1,16 @@
 import React from 'react'
+
+import GroupView from "./GroupView";
 import WishListView from './WishListView'
 
-const App = ({wishList}) => (
+const App = ({ group, wishList }) => (
   <>
     <h1>😍 WishList 🥰</h1>
-    <WishListView wishList={wishList}/>
+    <GroupView group={group} />
+    {console.log(`App-currentUser: ${group.currentUser}`)}
+    {group.currentUser && (
+      <WishListView wishList={group.currentUser.wishList} />
+    )}
   </>
 );
 

@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { onSnapshot, getSnapshot } from 'mobx-state-tree';
+import { getSnapshot } from 'mobx-state-tree';
 
 import App from "./components/App";
 import {WishList} from './models/WishList'
+import { Group } from "./models/Group";
 
 // if(localStorage.getItem("wishListApp")){
 //   const json = JSON.parse(localStorage.getItem("wishListApp"));
@@ -19,7 +20,41 @@ import {WishList} from './models/WishList'
 // });
 
 const initialState = {
-  items: [
+  group:{
+   users: {
+    "a342": {
+      id: "a342",
+      name: "Homer",
+      gender: "m"
+      }
+    ,
+    "5fc2": {
+      id: "5fc2",
+      name: "Marge",
+      gender: "f"
+      }
+    ,
+    "663b": {
+      id: "663b",
+      name: "Bart",
+      gender: "m"
+      }
+    ,
+    "65aa": {
+      id: "65aa",
+      name: "Maggie",
+      gender: "f"
+      }
+    ,
+    "ba32": {
+      id: "ba32",
+      name: "Lisa",
+      gender: "f"
+      }
+   }
+  },
+  wishlist: {
+    items: [
     {
       name: "Happy Box",
       price: 2000,
@@ -32,7 +67,8 @@ const initialState = {
       image:
         "https://st2.depositphotos.com/1000336/8268/i/950/depositphotos_82683780-stock-photo-white-christmas-cake-with-decorations.jpg",
     },
-  ],
+  ]
+  }
 };
 
 // 로컬 스토리지로 현재 state (state tree)를 보존
@@ -41,30 +77,33 @@ const initialState = {
 // ** hot module reloading 이란?
 // webpack은 JS 파일을 수정이 되면 변경 사항을 
 // 반환 application으로 보내고 메모리 모듈을 대체
-const renderApp = wishList =>{
-  ReactDOM.render(<App wishList={wishList}/>, document.getElementById("root"));
+const renderApp = (group, wishList) =>{
+  ReactDOM.render(<App group={group} wishList={wishList}/>, document.getElementById("root"));
 }
 
-const wishList = WishList.create(initialState); 
+const wishList = WishList.create(initialState.items); 
+const group = Group.create(initialState.group);
 
-renderApp(wishList); 
+renderApp(group, wishList); 
 
 if (module.hot){
-  
   // 1) 컴포넌트가 변경되는 경우, 
   // 루트 /에서 application 재랜더링
   module.hot.accept(["./components/App"], ()=> {
-  console.log("component re-rendering");
-   renderApp(wishList);
+   renderApp(group, wishList);
   })
 
   // 2) 모델이 변경된 경우, snapshot을 이용해서
   // 현재 state tree로 유지되게 한다.
-   module.hot.accept(["./models/WishList"], () => {
-    console.log('new model')
-    const snapshot = getSnapshot(wishList);
-    renderApp(WishList.create(snapshot));
-   });
+  module.hot.accept(["./models/WishList"], () => {
+  const snapshot = getSnapshot(wishList);
+  renderApp(group, wishList.create(snapshot));
+  });
+
+  module.hot.accept(["./models/Group"], () => {
+    const snapshot = getSnapshot(group);
+    renderApp(group.create(snapshot), wishList);
+  });
 }
 
 // setInterval(()=>{
