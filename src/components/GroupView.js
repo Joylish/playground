@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import {values} from 'mobx';
 import {observer} from 'mobx-react'
 
+
 const GroupView = ({ group }) => {
   const onSelectUser = event => {
     console.log(`groupView-currentUser: ${event.target.value}`);
