@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { getSnapshot } from 'mobx-state-tree';
+import { getSnapshot, addMiddleware } from 'mobx-state-tree';
 
 import App from "./components/App";
-import {WishList} from './models/WishList'
+// import {WishList} from './models/WishList'
 import { Group } from "./models/Group";
 
 // if(localStorage.getItem("wishListApp")){
@@ -52,24 +52,9 @@ const initialState = {
       gender: "f"
       }
    }
-  },
-  wishlist: {
-    items: [
-    {
-      name: "Happy Box",
-      price: 2000,
-      image:
-        "https://i.pinimg.com/474x/aa/a6/81/aaa681b77b7ea856e706b904cdb49d20.jpg",
-    },
-    {
-      name: "White",
-      price: 10,
-      image:
-        "https://st2.depositphotos.com/1000336/8268/i/950/depositphotos_82683780-stock-photo-white-christmas-cake-with-decorations.jpg",
-    },
-  ]
   }
 };
+
 
 // 로컬 스토리지로 현재 state (state tree)를 보존
 // 한계: 무언가를 변경할 때 마다 앱을 다시 로드해야 함
@@ -77,32 +62,37 @@ const initialState = {
 // ** hot module reloading 이란?
 // webpack은 JS 파일을 수정이 되면 변경 사항을 
 // 반환 application으로 보내고 메모리 모듈을 대체
-const renderApp = (group, wishList) =>{
-  ReactDOM.render(<App group={group} wishList={wishList}/>, document.getElementById("root"));
+const renderApp = (group) =>{
+  ReactDOM.render(<App group={group}/>, document.getElementById("root"));
 }
 
-const wishList = WishList.create(initialState.items); 
-const group = Group.create(initialState.group);
+const group = window.group= Group.create(initialState.group);
 
-renderApp(group, wishList); 
+/* 
+addMiddleware를 사용하여 
+group 모델에서 호출되는 액션 type과 name을 
+콘솔 로그에 출력
+*/
+addMiddleware(group, (call, next) => {
+  console.log(`[${call.type}] [${call.name}]`);
+  next(call);
+});
+
+renderApp(group); 
 
 if (module.hot){
   // 1) 컴포넌트가 변경되는 경우, 
   // 루트 /에서 application 재랜더링
   module.hot.accept(["./components/App"], ()=> {
-   renderApp(group, wishList);
+   renderApp(group);
   })
 
   // 2) 모델이 변경된 경우, snapshot을 이용해서
   // 현재 state tree로 유지되게 한다.
-  module.hot.accept(["./models/WishList"], () => {
-  const snapshot = getSnapshot(wishList);
-  renderApp(group, wishList.create(snapshot));
-  });
 
   module.hot.accept(["./models/Group"], () => {
     const snapshot = getSnapshot(group);
-    renderApp(group.create(snapshot), wishList);
+    renderApp(group.create(snapshot));
   });
 }
 

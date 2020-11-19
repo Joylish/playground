@@ -4,7 +4,7 @@ import {clone, getSnapshot, applySnapshot, getParent} from 'mobx-state-tree'
 
 import WishListItemEdit from './WishListItemEdit'
 
-const WishListItemView = ({item}) => {
+const WishListItemView = ({item, readonly}) => {
   const [state, setState] = useState({
     edit: false,
     clone: null
@@ -52,10 +52,14 @@ const WishListItemView = ({item}) => {
       )}
       <h3>{item.name}</h3>
       <span>$ {item.price}</span>
+      {
+      !readonly 
+      &&
       <span style={{ display: "flex" }}>
         <button onClick={onToggleEdit}>✏️</button>
         <button onClick={onRemove}>🗑</button>
       </span>
+      }
     </li>
   );
 }

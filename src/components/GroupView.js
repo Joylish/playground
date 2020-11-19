@@ -5,7 +5,6 @@ import {observer} from 'mobx-react'
 
 const GroupView = ({ group }) => {
   const onSelectUser = event => {
-    console.log(`groupView-currentUser: ${event.target.value}`);
     group.select(event.target.value);
   }
 
