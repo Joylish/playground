@@ -13,3 +13,7 @@ express가 자유도가 높아서 처음엔 app.js와 route.js 이 두 파일로
 아직 부족한 점이 많아 고도화 진행중이기는 하지만...
 
 최근에 유튜브를 통해 nest.js가 express 위에서 구조를 갖춰 개발할 수 있다는 것을 알고 공부해보기로 했다.
+
+## 👉 공부 자료 및 방식
+우선은 노마드 코더의 `NestJS로 API 만들기`로 시작해보려고 한다.
+[자료](https://nomadcoders.co/nestjs-fundamentals/lobby)
