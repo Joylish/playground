@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <style>
+    div {
+      padding-right: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <center>
+    <p style="color:orange;font-size:24px;font-weight:bold;text-shadow: 2px 2px 0px black;">Become a Member</p>
+  </center>
+  <hr color="orange">
+  <form>
+    <center>
+      <fieldset style="width:500px">
+        <legend style="color:green;font-weight:bold;">Registration Information</legend>
+        <div align="right">
+          E-Mail: <input type="email" name="email" id="email" required /><br />
+          Password: <input type="password" name="" id="pw" placeholder="At least 6 letters or numbers" required /><br />
+          Verify Password: <input type="password" name="vpw" id="vpw" required /><br />
+        </div>
+      </fieldset>
+
+      <fieldset style="width:500px">
+        <legend style="color:green;font-weight:bold;">Member Information</legend>
+        <div align="right">
+          First Name: <input type="text" name="firstname" id="firstname" required /><br />
+          Last Name: <input type="text" name="lastname" id="lastname" required /><br />
+          Address: <input type="text" name="address" id="address" /><br />
+          City: <input type="text" name="city" id="city" required /><br />
+          State: <input type="text" name="state" id="state" placeholder="2-character code" required /><br />
+          ZIP Code: <input type="text" name="zip" id="zip" placeholder="5 or 9 digits" required /><br />
+          Phone Number: <input type="tel" name="phone" id="phone" placeholder="999 999 9999" /><br />
+        </div>
+      </fieldset>
+
+      <fieldset style="width:500px">
+        <div align="right">
+          Membership Type: <select name="membership">
+            <option value="ju">junior</option>
+            <option value="si">senior</option>
+          </select><br>
+          Starting Date: <input type="date" name="date" required><br />
+          Tickets for Guests: <input type="number" name="num" min="0" max="9">
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset style="width:500px">
+        <legend style="color:green;font-weight:bold;">Submit Your Membership</legend>
+        <div align="right">
+          <input type="submit" value="Submit" />
+          <input type="reset" value="Reset Fields" />
+        </div>
+      </fieldset>
+    </center>
+  </form>
+  <hr color="orange">
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+*{
+  font-family: monospace;
+}
+
+h1 {
+  min-width: 50rem;
+  font-size: 3em;
+  font-weight: bold;
+  color: #FE9A2E;
+  text-shadow: 3px 3px 3px black;
+  text-align:center;
+}
+
+hr{
+  border: solid 1px orange;
+  width: 100%;
+  min-width: 50rem;
+}
+
+fieldset{
+  min-width: 40rem;
+  margin-top: 1em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+legend{
+  font-size:1.2em;
+  font-weight: bold;
+  color:#088A29
+}
+
+form{
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;  
+}
+
+label{
+  display:inline-block;
+  width:10em;
+  line-height:50px;
+  font-weight: bold;
+}
+
+input{
+  width: 60%;
+  padding: 5px 2px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input:required { border: 1px solid red; }
+
+select{
+  width: 60%;
+  padding: 5px 2px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button{
+  justify-content: center;
+  width: 45%;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: auto;
+}
+
+.item{
+  width: 35em;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-group{
+  width: 100%;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;  
+  justify-content: center;  
+  align-items: center;
+  justify-content: space-evenly;
+}
