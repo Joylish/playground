@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./main.css">
+  <link rel=" shortcut icon" href="./img/favicon.ico">
+  <link rel="icon" href="./img/favicon.ico">
+  <title>💛연주네 북카페💛</title>
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <div class="logo_area">
+        <h1 class="logo_default">SSAFY BookCafe</h1>
+        <div class="nav_item"><a href="#">공지사항</a></div>
+      </div>
+      <nav>
+        <ul class="list_nav">
+          <li class="nav_item"><a href="#">로그인</a></li>
+          <li class="nav_item"><a href="#">회원가입</a></li>
+          <li class="nav_item"><a href="#">로그아웃</a></li>
+          <li class="nav_item"><a href="#">마이페이지</a></li>
+          <li class="nav_item"><a href="#">관리자</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <aside>
+        <div class="container_profile">
+          <img src="img/profile.png">
+        </div>
+        <div class="container_stores">
+          <details open style="width: 10em;">
+            <summary>전국 매장 펼치기</summary>
+              <ul class="list_stores" id="stores_region_seoul">
+                <strong><a href="#">서울</a></strong>
+                <li class="store_item"><a href="#">역삼점</a></li>
+                <li class="store_item"><a href="#">선릉점</a></li>
+              </ul>
+              <ul class="list_stores" id="stores_region_daejeon">
+                <strong><a href="#">대전</a></strong>
+                <li class="store_item"><a href="#">학하점</a></li>
+                <li class="store_item"><a href="#">봉명점</a></li>
+              </ul>
+              <ul class="list_stores" id="stores_region_gumi">
+                <strong><a href="#">구미</a></strong>
+                <li class="store_item"><a href="#">안동점</a></li>
+                <li class="store_item"><a href="#">공단점</a></li>
+              </ul>
+              <ul class="list_stores" id="stores_region_kwangju">
+                <strong><a href="#">광주</a></strong>
+                <li class="store_item"><a href="#">하남신단점</a></li>
+                <li class="store_item"><a href="#">광주역점</a></li>
+              </ul>
+            </details>
+        </div>
+        <div class="container_survey">
+          <div class="survey_header">
+            <h3>당신의선택</h3>
+            <h4>공부하고 싶은 분야를 골라주세요!</h4>
+          </div>
+          <form>
+            <div class="survey_options">
+              <div class="option_item">
+                <input class="radio" type="radio" name="option" value="python">
+                <img src="img/poll/python.png">
+                <label for="python">Python</label>
+              </div>
+              <div class="option_item">
+                <input class="radio" type="radio" name="option" value="html5">
+                <img src="img/poll/html5.png">
+                <label for="html5">HTML5</label>
+              </div>
+              <div class="option_item">
+                <input class="radio" type="radio" name="option" value="vuejs">
+                <img src="img/poll/vuejs.png">
+                <label for="vuejs">Vue.js</label>
+              </div>
+              <div class="option_item">
+                <input class="radio" type="radio" name="option" value="java">
+                <img src="img/poll/java.png">
+                <label for="java">Java</label>
+              </div>
+            </div>
+            <div class="group_btn">
+              <button type="submit">투표하기</button>
+              <button type="button">결과보기</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+      <section>
+        <p class="book_type"><b> [ 프로그래밍 언어 ] </b></p>
+        <ul class="list_books" id="books_type_p" >
+          <li class="books_item" id="booksItem_p01" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img
+                    src="./img/book/p_book01.png"
+                    lazyimg="./img/book/p_book01.png"
+                    width="107" height="146" alt="Do it! 점프 투 파이썬">
+                </div>
+                <p class="book_info">
+                  <span class="title">Do it! 점프 투 파이썬</span>
+                  <span class="price"><strong>18,800</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_p02" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/p_book02.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="HTML API 프로그래밍">
+                </div>
+                <p class="book_info">
+                  <span class="title">HTML API 프로그래밍</span>
+                  <span class="price"><strong>23,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_p03" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/p_book03.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="백견불여일타 Vue.js입문">
+                </div>
+                <p class="book_info">
+                  <span class="title">백견불여일타 Vue.js입문</span>
+                  <span class="price"><strong>22,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_p04" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/p_book04.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="Java 프로그래밍">
+                </div>
+                <p class="book_info">
+                  <span class="title">Java 프로그래밍</span>
+                  <span class="price"><strong>26,500</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_p05" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/p_book05.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="토비의 스프링 3.1">
+                </div>
+                <p class="book_info">
+                  <span class="title">토비의 스프링 3.1</span>
+                  <span class="price"><strong>36,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <p class="book_type"><b> [ 에세이 ] </b></p>
+        <ul class="list_books" id="books_type_e">
+          <li class="books_item" id="booksItem_e01" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/e_book01.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="2인조">
+                </div>
+                <p class="book_info">
+                  <span class="title">2인조</span>
+                  <span class="price"><strong>14,800</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_p02" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/e_book02.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="안녕, 소중한 사람">
+                </div>
+                <p class="book_info">
+                  <span class="title">안녕, 소중한 사람</span>
+                  <span class="price"><strong>15,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_e03" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/e_book03.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="꽃을 보든 너를 본다">
+                </div>
+                <p class="book_info">
+                  <span class="title">꽃을 보든 너를 본다</span>
+                  <span class="price"><strong>10,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_e04" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/e_book04.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="곰돌이 푸, 행복한 일은 매일 있어">
+                </div>
+                <p class="book_info">
+                  <span class="title">곰돌이 푸, 행복한 일은 매일 있어</span>
+                  <span class="price"><strong>12,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+          <li class="books_item" id="booksItem_p05" data-groupkey="1">
+            <div class="book_area">
+              <a href="#">
+                <div class="thumb_box">
+                  <img src="./img/book/e_book05.png" lazyimg="./img/book/p_book01.png" width="107" height="146"
+                    alt="하마터면 열심히 살 뻔했다">
+                </div>
+                <p class="book_info">
+                  <span class="title">하마터면 열심히 살 뻔했다</span>
+                  <span class="price"><strong>15,000</strong>원</span>
+                </p>
+              </a>
+            </div>
+          </li>
+        </ul>
+        <div class="boards_list">
+          <div class="board_popular">
+          <h3 class="board_type">인기글</h3>
+          <table>
+            <thead>
+              <tr>
+                <th scope="cols">제목</th>
+                <th scope="cols">작성자</th>
+                <th scope="cols">조회수</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">css는 저랑 좀 안 맞네요</th>
+                <td>이연주</td>
+                <td>2021</td>
+              </tr>
+              <tr>
+                <th scope="row" class="even">다리만들기2 솔루션 공유합니다</th>
+                <td class="even">장연주</td>
+                <td class="even">3021</td>
+              </tr>
+              <tr>
+                <th scope="row">야옹이네 팀원 모집합니다</th>
+                <td>박연주</td>
+                <td>5021</td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="board_recent">
+            <h3 class="board_type">최신글</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="cols">제목</th>
+                  <th scope="cols">작성자</th>
+                  <th scope="cols">조회수</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">사람살려</th>
+                  <td>이연주</td>
+                  <td>105</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="even">데이식스 소개 페이지 만들었어요</th>
+                  <td class="even">장연주</td>
+                  <td class="even">21</td>
+                </tr>
+                <tr>
+                  <th scope="row">싸피 면접 후기 남깁니다</th>
+                  <td>박연주</td>
+                  <td>207</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <ul class="list_corp">
+        <li class="corp_item"><a href="#">카페소개</a></li>
+        <li class="corp_item"><a href="#">개인정보처리방침</a></li>
+        <li class="corp_item"><a href="#">이용약관</a></li>
+        <li class="corp_item"><a href="#">오시는길</a></li>
+        <li class="corp_item"><a href="#">ⓒ SSAFY Corp.</a></li>
+      </ul>
+    </footer>
+  </div>
+</body>

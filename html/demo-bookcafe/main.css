@@ -1,0 +1,304 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+  margin:0px;
+  padding:0px;
+  -webkit-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  box-sizing:border-box;
+  font-family: 'NEXON Lv1 Gothic OTF', sans-serif;;
+}
+
+body{ -ms-overflow-style: none; }
+
+::-webkit-scrollbar { display: none; }
+
+header{
+  display: flex;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+a:visited {color: #333;}
+
+ol,ul{
+  list-style-type: none;  
+}
+
+img {border: 0 none; font-size: 0;line-height: 0;}
+
+main{
+  display: table;
+  table-layout: fixed;
+  clear: both;
+}
+
+aside{
+  width: 30%;
+}
+
+main{
+  margin-left: 5em;
+  margin-right: 5em;
+}
+
+
+.wrap{
+  overflow: hidden;
+  min-width: 1190px;
+  color: #202020;
+  
+}
+.logo_area{
+  display: flex;
+}
+
+.header{
+  position: relative;
+  height: 4em;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.50);
+  border-bottom: 1px solid #eee;
+}
+
+.logo_area{
+  margin-left: 1.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+nav{
+  right: 1.5em;
+  top: 1.5em;
+  position: absolute;
+  display: flex;
+  overflow: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  float: right;
+}
+
+.nav_item{
+  float:left;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+.container{
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.container_profile{
+  width: 5rem;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.container_profile img{
+  width: 10rem;
+  height: 10rem;
+}
+
+.container_stores{
+  padding: 10px;
+  margin-top: 3em;
+  margin-bottom: 1.5em;
+}
+
+.list_stores{
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.store_item{
+  margin-top: 0.5em;
+  /* margin-left: 1.5em; */
+}
+
+.book_type{
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.list_books{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  width: 50em;
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.books_item {
+  text-align: center;
+}
+
+.book_info{
+  font-size: 0.8em;
+  overflow: auto;
+  width: 15em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.option_item img{
+  width: 25px;
+  height: 25px;
+}
+
+.boards_list{
+  display: flex;
+  font-size: 0.8em;
+  margin-top: 5em;
+}
+
+.boards_list table {
+  border-collapse: collapse;
+  text-align: center;
+  line-height: 1.5;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 10px;
+}
+.board_popular table thead th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+  background: #e7708d;
+  margin: 20px 10px;
+}
+.board_popular table tbody th {
+  width: 350px;
+  padding: 10px;
+}
+.board_popular table td {
+  width: 150px;
+  padding: 10px;
+  vertical-align: top;
+}
+.board_popular table .even {
+  background: #fdf3f5;
+}
+
+.board_recent table thead th {
+  width: 150px;
+  padding: 10px;
+  font-weight: bold;
+  vertical-align: top;
+  color: #fff;
+  background: #7096e7;
+  margin: 20px 10px;
+}
+.board_recent table tbody th {
+  width: 350px;
+  padding: 10px;
+}
+.board_recent table td {
+  width: 150px;
+  padding: 10px;
+  vertical-align: top;
+}
+.board_recent table .even {
+  background: #f1f7ff;
+}
+
+.board_type{
+  margin: 1em 1em;
+}
+
+.container_survey{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  width: 10em;
+}
+
+.survey_options{
+  font-size: 0.7em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.group_btn{
+  display: inline-flex;
+  justify-content: space-evenly;
+  width: 10em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+button {
+  padding: 0.3em;
+  background: #275EFE;
+  color: white;
+  border-color: transparent;
+  border-radius: 5px;
+  display: block;
+  font-weight: bold;
+}
+
+button:hover {
+	color: rgba(255, 255, 255, 0.85);
+	box-shadow: rgba(49, 92, 54, 0.7) 0 80px 0px 2px inset;
+}
+.radio {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  outline: none;
+  background: white;
+}
+
+.radio:checked:before {
+  background:#090e1a;
+}
+
+.radio:after {
+  content:'';
+  display:block;
+  width: 10px;
+  height: 10px;
+  border-radius:50%;
+  transform: scale(var(--s, 0.7));
+}
+
+input[type=radio]:checked {
+    --s: .5;
+  }
+
+footer{
+  background-color: #f5f5f7;
+  float: bottom;
+  height: 7em;
+}
+
+.list_corp{
+  display: flex;
+  justify-content: space-evenly;
+  width: 35em;
+  margin-top: 1em;
+  padding-top: 2em;
+}
+
+
