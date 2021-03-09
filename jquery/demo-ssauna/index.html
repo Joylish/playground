@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>싸우나</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style/base/_reset.css" />
+    <link rel="stylesheet" href="./style/layout/_header.css" />
+    <link rel="stylesheet" href="./style/layout/_modal.css"/>
+    <!-- <link rel="preload" href="./nanumGothic.woff2" as="font" type="font/woff2" crossorigin="anonymous"> -->
+    <link rel="preload" type="text/css" href="https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow">
+      <div class="navbar-container">
+        <a class="navbar-brand" href="./index.html">
+          <h1 class="logo">
+            <div class="title">싸우나</div>
+            <div class="subtitle">싸피에서 우리끼리 소식 나누기</div>
+          </h1>
+        </a>
+    
+        <div class="collapse navbar-collapse" id="navb">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)">공지사항</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript:void(0)">게시판</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav justify-content-end" >
+            <li class="nav-item">
+              <button type="button" class="login-button nav-link text-dark" data-toggle="modal" data-target="#loginModal">로그인</button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="page/register.html">회원가입</a>
+            </li>
+          </ul>
+    
+          <ul class="navbar-nav justify-content-end" style="display: none;">
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="javascript:void(0)">로그아웃</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="javascript:void(0)">마이페이지</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="javascript:void(0)">관리자</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="modal-container modal" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">로그인하기</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input type="email" id="email_id" class="form-control mb-3" placeholder="이메일을 입력하세요" required autofocus>
+              <input type="password" id="inputPassword" class="form-control mb-3" placeholder="비밀번호를 입력하세요" required>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> 나를 기억해주세요!
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

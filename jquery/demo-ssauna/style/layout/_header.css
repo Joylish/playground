@@ -1,0 +1,28 @@
+.logo{
+  color: #5f3dc4;
+  text-align: center;
+}
+
+.title{
+  font-family: 'Noto Serif KR', serif;
+}
+
+.subtitle{
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.login-button{
+  background-color: transparent;
+  border: none;
+}
+
+.login-button:focus{
+  outline: none;
+}

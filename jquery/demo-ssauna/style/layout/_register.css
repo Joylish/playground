@@ -1,0 +1,27 @@
+::-webkit-scrollbar { 
+  display: none; 
+}
+
+.registerform{
+  margin-top: 150px;
+}
+.registerform-header{
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.registerform-header__title{
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.space{
+  display: inline-block;
+  height: 17px;
+}
+
+.check-message{
+  display: inline-block;
+  height: 17px;
+}
