@@ -1,0 +1,37 @@
+  /* <section class="main-container">
+      <div class="preview-map" id="map">
+        <img src="./images/map-sample.png" />
+      </div>
+      <div class="right-list">
+        <div class="type-button-group">
+          <button class="all-room">
+            전체방
+            <span class="number-all-room">15</span>개
+          </button>
+          <button class="apt">
+            아파트
+            <span class="number-apt">14</span>개
+          </button>
+          <button>
+            다세대
+            <span class="number-dasaedae">1</span>개
+          </button>
+        </div>
+        <ul class="room-list">
+          <li>야호아파트</li>
+          <li>야호아파트</li>
+          <li>야호아파트</li>
+        </ul>
+      </div>
+    </section> */
+.main-container{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: 80%;
+}
+
+img{
+  height: 100%;
+  width: 140%;
+}

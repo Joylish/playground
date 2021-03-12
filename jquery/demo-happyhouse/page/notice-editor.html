@@ -1,0 +1,180 @@
+<html>
+  <head>
+        <meta charset="utf-8">
+        <title>싸지방</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="images/favicon.html">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap" rel="stylesheet">
+        
+        <link href="../css/common/_header.css" rel="stylesheet">
+        <link href="../css/base/_reset.css" rel="stylesheet">
+        <script src="../js/register.js"></script>
+  </head>
+  <body>
+    <div class="header-container shadow">
+      
+      <header class="header fixed fixed-desktop clearfix">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-auto hidden-md-down">
+              <div class="header-first clearfix">
+    
+                <div id="logo" class="logo">
+                  <a href="index.html">
+                    <div class="title">싸지방</div>
+                    <div class="subtitle">싸피 지각생이 추천하는 방</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 ml-auto">
+              <div class="header-second clearfix">
+    
+    
+                <div class="main-navigation main-navigation--mega-menu  animated">
+                  <div class="header-top-dropdown text-right">
+                    <div class="btn-group">
+                      <a href="register.html" class="btn btn-default btn-sm"><i class="fa fa-user"></i>회원가입</a>
+                    </div>
+                    <div class="btn-group">
+                      <button id="header-top-drop-2" type="button" class="btn btn-sm" data-toggle="modal"
+                        data-target="#loginModal" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-lock"></i>로그인
+                      </button>
+                    </div>
+                  </div>
+                  <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="navbar-brand clearfix d-none d-sm-block d-md-none">
+    
+                      <div id="logo-mobile" class="logo">
+                        <a href="index.html">
+                          <div class="title">싸지방</div>
+                          <div class="subtitle">싸피 지각생이 추천하는 방</div>
+                        </a>
+                      </div>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1"
+                      aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                      <ul class="navbar-nav ml-xl-auto">
+                        <li class="nav-item dropdown  mega-menu mega-menu--wide">
+                          <a href="notice.html" class="nav-link " id="first-dropdown" aria-haspopup="true"
+                            aria-expanded="false">공지사항</a>
+                        </li>
+                        <li class="nav-item dropdown mega-menu mega-menu--wide">
+                          <a href="news.html" class="nav-link" id="second-dropdown" aria-haspopup="true"
+                            aria-expanded="false">오늘의 뉴스</a>
+                        </li>
+                        <li class="nav-item dropdown mega-menu mega-menu--wide">
+                          <a href="watchlist.html" class="nav-link" id="second-dropdown" aria-haspopup="true"
+                            aria-expanded="false">관심 목록</a>
+                        </li>
+                        <li class="nav-item dropdown mega-menu mega-menu--wide">
+                          <a href="sitemap.html" class="nav-link" id="second-dropdown" aria-haspopup="true"
+                            aria-expanded="false">사이트맵</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container">
+        <div class="container-fluid text-center">
+            <h2>글쓰기</h2>
+        </div>
+        <form action="/action_page.php">
+            <div class="form-group">
+                <label for="title">제목:</label> <input type="text"
+                    class="form-control" id="title">
+            </div>
+            <div class="form-group">
+                <label for="contents">내용:</label> <input type="text"
+                    class="form-control form-control-lg" id="contents">
+            </div>
+        </form>
+        <div class="container text-center">
+            <button type="submit" class="btn btn-primary mr-1">글작성</button>
+            <button type="submit" class="btn btn-warning mr-1">초기화</button>
+            <button type="submit" class="btn btn-secondary">목록</button>
+        </div>
+    </div>
+    </body>
+    </html>
+
+    <div class="modal-container modal" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">로그인하기</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input type="email" id="email_id" class="form-control mb-3" placeholder="이메일을 입력하세요" required autofocus>
+              <input type="password" id="inputPassword" class="form-control mb-3" placeholder="비밀번호를 입력하세요" required>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> 나를 기억해주세요!
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg" type="submit">로그인</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">닫기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-container modal" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">로그인하기</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input type="email" id="email_id" class="form-control mb-3" placeholder="이메일을 입력하세요" required autofocus>
+    
+              <div class="inputbox">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span></span>
+                  <a href="./password-finder.html">비밀번호를 잊어버리셨습니까?</a>
+                </div>
+                <input type="password" id="inputPassword" class="form-control mb-3" placeholder="비밀번호를 입력하세요" required>
+              </div>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> 나를 기억해주세요!
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg" type="submit">로그인</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,511 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>싸지방</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" href="images/favicon.html">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Nanum+Gothic&display=swap"
+      rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link href="../css/common/_header.css" rel="stylesheet">
+    <link href="../css/base/_reset.css" rel="stylesheet">
+    <link href="../css/layout/_preview.css" rel="stylesheet">
+    <link href="../css/layout/_roomlist.css" rel="stylesheet">
+    <script src="../js/main.js"></script>
+  </head>
+  <body>
+    <div class="header-container shadow">
+      
+      <header class="header fixed fixed-desktop clearfix">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-auto hidden-md-down">
+              <div class="header-first clearfix">
+    
+                <div id="logo" class="logo">
+                  <a href="index.html">
+                    <div class="title">싸지방</div>
+                    <div class="subtitle">싸피 지각생이 추천하는 방</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-10 ml-auto">
+              <div class="header-second clearfix">
+    
+    
+                <div class="main-navigation main-navigation--mega-menu  animated">
+                  <div class="header-top-dropdown text-right">
+                    <div class="btn-group">
+                      <a href="register.html" class="btn btn-default btn-sm"><i class="fa fa-user"></i>회원가입</a>
+                    </div>
+                    <div class="btn-group">
+                      <button id="header-top-drop-2" type="button" class="btn btn-sm" data-toggle="modal" data-target="#loginModal"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-lock"></i>로그인
+                      </button>
+                    </div>
+                  </div>
+                  <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <div class="navbar-brand clearfix d-none d-sm-block d-md-none">
+    
+                      <div id="logo-mobile" class="logo">
+                        <a href="index.html">
+                          <div class="title">싸지방</div>
+                          <div class="subtitle">싸피 지각생이 추천하는 방</div>
+                        </a>
+                      </div>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-1"
+                      aria-controls="navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                      <ul class="navbar-nav ml-xl-auto">
+                        <li class="nav-item dropdown  mega-menu mega-menu--wide">
+                          <a href="notice.html" class="nav-link " id="first-dropdown" aria-haspopup="true"
+                            aria-expanded="false">공지사항</a>
+                        </li>
+                        <li class="nav-item dropdown mega-menu mega-menu--wide">
+                          <a href="news.html" class="nav-link" id="second-dropdown" aria-haspopup="true"
+                            aria-expanded="false">오늘의 뉴스</a>
+                        </li>
+                        <li class="nav-item dropdown mega-menu mega-menu--wide">
+                          <a href="watchlist.html" class="nav-link" id="second-dropdown" aria-haspopup="true"
+                            aria-expanded="false">관심 목록</a>
+                        </li>
+                        <li class="nav-item dropdown mega-menu mega-menu--wide">
+                          <a href="sitemap.html" class="nav-link" id="second-dropdown" aria-haspopup="true"
+                            aria-expanded="false">사이트맵</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <div class="row m-3">
+      <div class="col-3">
+        <div class="input-group">
+          <input type="search" placeholder="검색" class="form-control">
+          <div class="input-group-prepend">
+            <button id="search" type="submit" class="btn"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="input-group ">
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu"
+              data-toggle="dropdown">
+              원룸, 투·쓰리룸, 오피스텔·도시형
+            </button>
+            <div class="dropdown-menu m-3">
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">원룸
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">투·쓰리룸
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">오피스텔·도시형
+              </button>
+            </div>
+          </div>
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu"
+              data-toggle="dropdown">
+              월세, 전세, 매매
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">월세
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">전세
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">매매
+              </button>
+            </div>
+          </div>
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu"
+              data-toggle="dropdown">
+              관리비
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">
+                <input type="range">Action
+              </button>
+            </div>
+          </div>
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu"
+              data-toggle="dropdown">
+              방크기
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">
+                <input type="range">Action
+              </button>
+            </div>
+          </div>
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu"
+              data-toggle="dropdown">
+              사용승인일
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">전체
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">1년 이내
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">5년 이내
+              </button>
+            </div>
+          </div>
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu"
+              data-toggle="dropdown">
+              환경필터
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">녹지
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">폐수 배출
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">대기 배출
+              </button>
+            </div>
+          </div>
+          <div class="dropdown inline mr-3">
+            <button class="btn dropdown-toggle" type="button" id="sampleDropdownMenu" data-toggle="dropdown">
+              상업필터
+            </button>
+            <div class="dropdown-menu">
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">음식점
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">커피점/카페
+              </button>
+              <button class="dropdown-item" type="button">
+                <input type="checkbox">술집
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="preview-map" id="map">
+        <img src="../images/map-sample.png" />
+      </div class="right-list">
+      <div class="d-flex flex-column">
+        <ul class="d-flex nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#qwe">전체</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#asd">아파트</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#zxc">다세대주택</a>
+          </li>
+        </ul>
+        <div class="tab-content" style="max-width: 550px; overflow: scroll;">
+          <div class="tab-pane fade show active" id="qwe">
+            <div class="card" style="max-width: 550px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3518efe6-29cc-41bf-8ca8-09abf662f5ed"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title">다솜오피스텔</h5>
+                    <p class="card-text">성북구 석관동 21세대</p>
+                    <p class="card-text"><small class="text-muted">2100만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/cc8287fd-07ab-447a-9ee5-4d95acf22839"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">용산리첸시아</h5>
+                    <p class="card-text">용산구 문배동 38세대</p>
+                    <p class="card-text"><small class="text-muted">전세 1123만/3.3m²당</small></p>
+                    <a href="#" title="Love it" class="btn btn-counter" data-count="0"><span>&#x2764;</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3f95e2dc-1538-485d-b05b-9074939be49d"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">광화문풍림스페이스본</h5>
+                    <p class="card-text">종로구 사직동 </p>
+                    <p class="card-text"><small class="text-muted">1079만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/402dbc51-c7f9-45d5-8651-cdcf52ae3c5b"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">삼환아르누보</h5>
+                    <p class="card-text">강남구 논현동 86세대</p>
+                    <p class="card-text"><small class="text-muted">1441만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/0dcb3d8a-1453-4877-a821-3c87bb8eed3d"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">종로1가대성스카이렉스</h5>
+                    <p class="card-text">종로구 견지동</p>
+                    <p class="card-text"><small class="text-muted">2,220만/3.3㎡</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="asd">
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3518efe6-29cc-41bf-8ca8-09abf662f5ed"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="building-detail.html">다솜오피스텔</a></h5>
+                    <p class="card-text">성북구 석관동 21세대</p>
+                    <p class="card-text"><small class="text-muted">2100만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/cc8287fd-07ab-447a-9ee5-4d95acf22839"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">용산리첸시아</h5>
+                    <p class="card-text">용산구 문배동 38세대</p>
+                    <p class="card-text"><small class="text-muted">전세 1123만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3f95e2dc-1538-485d-b05b-9074939be49d"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">광화문풍림스페이스본</h5>
+                    <p class="card-text">종로구 사직동 </p>
+                    <p class="card-text"><small class="text-muted">1079만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/402dbc51-c7f9-45d5-8651-cdcf52ae3c5b"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">삼환아르누보</h5>
+                    <p class="card-text">강남구 논현동 86세대</p>
+                    <p class="card-text"><small class="text-muted">1441만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/0dcb3d8a-1453-4877-a821-3c87bb8eed3d"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">종로1가대성스카이렉스</h5>
+                    <p class="card-text">종로구 견지동</p>
+                    <p class="card-text"><small class="text-muted">2,220만/3.3㎡</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="zxc">
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3518efe6-29cc-41bf-8ca8-09abf662f5ed"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">다솜오피스텔</h5>
+                    <p class="card-text">성북구 석관동 21세대</p>
+                    <p class="card-text"><small class="text-muted">2100만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/cc8287fd-07ab-447a-9ee5-4d95acf22839"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">용산리첸시아</h5>
+                    <p class="card-text">용산구 문배동 38세대</p>
+                    <p class="card-text"><small class="text-muted">전세 1123만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/3f95e2dc-1538-485d-b05b-9074939be49d"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">광화문풍림스페이스본</h5>
+                    <p class="card-text">종로구 사직동 </p>
+                    <p class="card-text"><small class="text-muted">1079만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/402dbc51-c7f9-45d5-8651-cdcf52ae3c5b"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">삼환아르누보</h5>
+                    <p class="card-text">강남구 논현동 86세대</p>
+                    <p class="card-text"><small class="text-muted">1441만/3.3m²당</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card " style="max-width: 540px;">
+              <div class="row no-gutters">
+                <div class="col-md-5">
+                  <img src="https://d2o59jgeq8ig2.cloudfront.net/complex/1024/0dcb3d8a-1453-4877-a821-3c87bb8eed3d"
+                    class="card-img" alt="...">
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body">
+                    <h5 class="card-title">종로1가대성스카이렉스</h5>
+                    <p class="card-text">종로구 견지동</p>
+                    <p class="card-text"><small class="text-muted">2,220만/3.3㎡</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <div class="modal-container modal" id="loginModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">로그인하기</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <input type="email" id="email_id" class="form-control mb-3" placeholder="이메일을 입력하세요" required autofocus>
+    
+              <div class="inputbox">
+                <div class="d-flex justify-content-between align-items-center">
+                  <span></span>
+                  <a href="./password-finder.html">비밀번호를 잊어버리셨습니까?</a>
+                </div>
+                <input type="password" id="inputPassword" class="form-control mb-3" placeholder="비밀번호를 입력하세요" required>
+              </div>
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> 나를 기억해주세요!
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg" type="submit">로그인</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
