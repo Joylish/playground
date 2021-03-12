@@ -2,8 +2,8 @@
 
 ### 조원
 
-- 임규태 (나쁜사람)
-- 이연주
+- [임규태 (나쁜사람)](https://github.com/lktgt15)
+- [이연주](https://github.com/Joylish)
 
 ## Function 1
 
