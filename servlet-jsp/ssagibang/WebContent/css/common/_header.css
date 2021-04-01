@@ -1,0 +1,15 @@
+.logo-wrapper{
+  text-align: center;
+}
+
+.title{
+  font-family: 'Black Han Sans', sans-serif;
+  font-size: 40px;
+  color: #E8590C;
+}
+
+.subtitle{
+  margin-top: -8px;
+  font-size: 13px;
+  color: #E8590C;
+}

@@ -1,0 +1,15 @@
+/*only for centering on the page*/
+.item{
+    height: 50px;
+}
+.item-name{
+    color: darkgrey;
+}
+button{
+    border:none;
+    
+}
+.bold{
+    font-size:larger;
+    font-weight: bold;
+}
