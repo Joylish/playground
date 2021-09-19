@@ -9,16 +9,19 @@ const simulator = async () => {
   const token = ret["token"];
 
   const calls = await onCalls(token);
-  // console.log(calls);
+  console.log(calls);
 
   const result = await action(token, [
     { elevator_id: 0, command: "UP" },
     { elevator_id: 1, command: "STOP" },
   ]);
-  // console.log(result);
+  console.log(result);
 
-  const resultForTest = await testFetchAll(user, count);
-  console.log(resultForTest);
+  /*
+   * Todo : fix testFetchAll
+   */
+  // const resultForTest = await testFetchAll(user, count);
+  // console.log(resultForTest);
 };
 
 simulator();

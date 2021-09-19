@@ -4,11 +4,12 @@
   "description": "module for 2nd test of Kakao",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Joylish (yeonzzu2@gmail.com)",
   "license": "ISC",
   "devDependencies": {
     "node-fetch": "^3.0.0"
-  }
+  },
+  "type" : "module"
 }
